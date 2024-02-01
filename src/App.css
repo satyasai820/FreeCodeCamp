@@ -1,0 +1,27 @@
+#spinner{
+  position: fixed;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-top: 20%;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.hover-button {
+  border: 1px solid white;
+  text-transform: capitalize;
+  padding: 0px 12px;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 0;
+  font-family: 'Lato', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+.hover-button:hover {
+  background-color: white;
+  color: #000000;
+}
