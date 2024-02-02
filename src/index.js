@@ -3,34 +3,53 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { createTheme,ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// const theme = createTheme({
-//    typography:{
-//     h1:{
-//       fontSize:'40px',
-//       [theme.breakpoints.only('xs')]:{
-//         fontSize:'27px',
-//       },
-//       [theme.breakpoints.only('sm')]:{
-//         fontSize:'35px',
-//       },
-//       [theme.breakpoints.only('md')]:{
-//         fontSize:'35px',
-//       },
-//       [theme.breakpoints.up('md')]:{
-//         fontSize:'40px',
-//       }
-//     }
-//    }
-// })
+
+const theme = createTheme();
+
+theme.typography.h1 = {
+ 
+  [theme.breakpoints.down('md')]: {
+    fontSize: '27px',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '40px',
+  },
+  fontFamily:'"Lato",sans-serif',
+  color:'#1B1B32',
+  fontWeight:'700',
+}
+
+theme.typography.h6 = {
+  fontFamily:'"Lato",sans-serif',
+  fontWeight: '550',
+  color: '#1B1B32',
+}
+
+theme.typography.p ={
+  fontFamily:'"Lato",sans-serif',
+  fontSize:'12px',
+  [theme.breakpoints.only('lg')]:{
+    fontSize:'15px',
+  },
+  [theme.breakpoints.only('md')]:{
+    fontSize:'13px',
+  },
+  [theme.breakpoints.down('md')]:{
+    fontSize:'15px',
+  },
+  color:'#2A2A40',
+}
+
+
 root.render(
-  // <ThemeProvider theme={theme}>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  // </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
