@@ -10,6 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Icon } from '@iconify/react';
 import { Button, Hidden, Menu, MenuItem } from '@mui/material';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -68,6 +69,7 @@ export default function PrimarySearchAppBar() {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
+    const navigate = useNavigate();
 
     const handleButtonClick = (event) => {
         setMenuOpen(true);
@@ -93,7 +95,7 @@ export default function PrimarySearchAppBar() {
                         />
                     </Search>
                     <Box sx={{ marginLeft: { xs: '0%', lg: '15%', xl: '18%' } }}>
-                        <img src='./assets/images/FreeCodeCamp_logo.png' alt='cdwqhfc' width={{ xs: 100, md: 200 }} height={20} />
+                        <img src='./assets/images/FreeCodeCamp_logo.png' alt='s' width={{ xs: 100, md: 200 }} height={20} />
                     </Box>
                     <Box
                         sx={{
@@ -212,7 +214,7 @@ export default function PrimarySearchAppBar() {
                         </Hidden>
 
                         <Hidden smUp>
-                            <IconButton>
+                            <IconButton onClick={()=>(navigate('/SignUp'))}>
                                 <Box sx={{
                                     border: '2px solid #f79205',
                                     display: 'flex',
@@ -227,7 +229,7 @@ export default function PrimarySearchAppBar() {
 
                         </Hidden>
                         <Hidden smDown>
-                            <IconButton>
+                            <IconButton onClick={()=>(navigate('/SignUp'))}>
                                 <Button style={SignInbutton}>Sign in</Button>
                             </IconButton>
                         </Hidden>

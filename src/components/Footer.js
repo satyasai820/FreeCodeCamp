@@ -55,7 +55,6 @@ const Footer = () => {
     return (
         <>
             <Grid container sx={{
-                border: '1px solid red',
                 justifyContent: 'center',
                 backgroundColor: '#DFDFE2',
 
@@ -63,7 +62,7 @@ const Footer = () => {
             }}>
                 <Grid container >
                 </Grid>
-                <Grid container sx={{ border: '3px solid green', width: { xs: '97%', sm: '95%', lg: '90%', xl: '70%' }, fontSize: '10px' }} >
+                <Grid container sx={{ width: { xs: '97%', sm: '95%', lg: '90%', xl: '70%' }, fontSize: '10px' }} >
                     <Grid item xs={12} md={6} sx={{ marginTop: { xs: '30px', md: '90px', lg: '90px' }, }}>
 
                         {
@@ -127,12 +126,12 @@ const Footer = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid container border={1} >
+                    <Grid container marginTop={2}>
                         {
                             aboutData.map((item) => (
                                 <>
                                     <Grid >
-                                        <Typography variant="p" lineHeight={4} sx={{ marginRight: '25px', display: 'flex' }}>{item.name}</Typography>
+                                        <Typography variant="p" lineHeight={4} sx={{ marginRight: '25px', display: 'flex'}}>{item.name}</Typography>
                                     </Grid>
                                 </>
                             ))

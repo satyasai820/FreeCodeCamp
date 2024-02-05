@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -41,13 +42,18 @@ theme.typography.p ={
     fontSize:'15px',
   },
   color:'#2A2A40',
+  // '&:hover':{
+  //   borderBottom:'1px solid black',
+  // }
 }
 
 
 root.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
+      <BrowserRouter>
       <App />
+      </BrowserRouter>
     </React.StrictMode>
   </ThemeProvider>
 );

@@ -1,7 +1,9 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ButtonComponent = () => {
+    const navigate = useNavigate();
     return(
         <>
         <Box textAlign={'center'}>
@@ -25,7 +27,9 @@ const ButtonComponent = () => {
             '&:hover': {
                 backgroundColor: "#FEAC32",
             }
-        }}><Typography sx={{
+        }}><Typography
+         onClick= {()=>(navigate('/SignUp'))}
+        sx={{
             fontFamily:'"Lato",sans-serif',
             fontSize: {
                 xs:'20px',
@@ -33,6 +37,10 @@ const ButtonComponent = () => {
                 md:'20px',
                 lg:'20px',
                  xl:'18px'
+                },
+                '& .nav-link': {
+                    textDecoration: 'none', 
+                    color: 'inherit',       
                 },
             }}>Get started (it's free)</Typography>
             
