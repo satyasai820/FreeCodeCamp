@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PrimarySearchAppBar from "../components/Navbar";
 import Content from "../components/Content";
 import Cards from "../components/Crads";
 import ButtonComponent from "../components/ButtonComponent";
@@ -7,6 +6,7 @@ import BoxInformation from "../components/BoxInformation";
 import QuestionComponent from "../components/QuestionComponent";
 import Footer from "../components/Footer";
 import { ScaleLoader } from "react-spinners";
+import Navbar from "../components/Navbar";
 
 const Flash = () => {
     const [loading, setloading] = useState(false);
@@ -27,7 +27,7 @@ const Flash = () => {
                     id="spinner"
                 />) : (
                     <>
-                        <PrimarySearchAppBar />
+                        <Navbar />
                         <Content />
                         <Cards />
                         <ButtonComponent />

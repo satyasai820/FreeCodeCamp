@@ -65,11 +65,12 @@ const SignInbutton = {
     borderRadius: '0',
 };
 
-export default function PrimarySearchAppBar() {
+export default function Navbar() {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const navigate = useNavigate();
+    const token = localStorage.getItem('authToken');
 
     const handleButtonClick = (event) => {
         setMenuOpen(true);
@@ -77,7 +78,10 @@ export default function PrimarySearchAppBar() {
     };
 
     const handleMenuClose = () => {
+        localStorage.removeItem('authToken');
+        navigate('/');
         setMenuOpen(false);
+
     };
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -155,66 +159,70 @@ export default function PrimarySearchAppBar() {
                                     style: {
                                         backgroundColor: 'black',
                                         color: 'white',
-                                        width:'200px',
+                                        width: '200px',
                                     },
                                 }}
                             >
                                 <MenuItem sx={{
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
-                                   Donate
+                                    Donate
                                 </MenuItem>
                                 <MenuItem sx={{
-                                    borderBottom:'1px solid white',
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
+                                    borderBottom: '1px solid white',
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
-                                   Curriculum
+                                    Curriculum
                                 </MenuItem>
                                 <MenuItem sx={{
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
-                                }}  onClick={handleMenuClose} style={{ color: 'white' }}>
-                                   Forum
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
+                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
+                                    Forum
                                 </MenuItem>
                                 <MenuItem sx={{
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
-                                }}  onClick={handleMenuClose} style={{ color: 'white' }}>
-                                   News
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
+                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
+                                    News
                                 </MenuItem>
                                 <MenuItem sx={{
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
-                                }}  onClick={handleMenuClose} style={{ color: 'white' }}>
-                                   Ratio
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
+                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
+                                    Ratio
                                 </MenuItem>
                                 <MenuItem sx={{
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
-                                }}  onClick={handleMenuClose} style={{ color: 'white' }}>
-                                   Contribute
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
+                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
+                                    Contribute
                                 </MenuItem>
                                 <MenuItem sx={{
-                                    borderBottom:'1px solid white',
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
-                                }}  onClick={handleMenuClose} style={{ color: 'white' }}>
-                                  Podcast
+                                    borderBottom: '1px solid white',
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
+                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
+                                    Podcast
                                 </MenuItem>
                                 <MenuItem sx={{
-                                    fontFamily:'Lato, sans-serif',
-                                    fontSize:'14px',
-                                }} label="Disabled" onClick={handleMenuClose} style={{ color: 'white' }}>
-                                  Sign in to change the Theme
+                                    fontFamily: 'Lato, sans-serif',
+                                    fontSize: '14px',
+                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
+                                    {token ? (<Button  style={{ color: 'white' ,textTransform:'none'}}>
+                                        Sign out
+                                    </Button>) : (<Button disabled style={{ color: 'gray' }}>
+                                        Sign Out
+                                    </Button>)}
                                 </MenuItem>
                             </Menu>
 
                         </Hidden>
 
                         <Hidden smUp>
-                            <IconButton onClick={()=>(navigate('/SignUp'))}>
+                            <IconButton onClick={() => (navigate('/SignUp'))}>
                                 <Box sx={{
                                     border: '2px solid #f79205',
                                     display: 'flex',
@@ -229,7 +237,7 @@ export default function PrimarySearchAppBar() {
 
                         </Hidden>
                         <Hidden smDown>
-                            <IconButton onClick={()=>(navigate('/SignUp'))}>
+                            <IconButton onClick={() => (navigate('/SignUp'))}>
                                 <Button style={SignInbutton}>Sign in</Button>
                             </IconButton>
                         </Hidden>
