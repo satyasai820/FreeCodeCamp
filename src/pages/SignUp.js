@@ -2,9 +2,10 @@
 import { Icon } from "@iconify/react";
 import { AppBar, Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { auth } from '../FireBase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, provider, gitProvider } from '../FireBase';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -12,64 +13,126 @@ import { useNavigate } from "react-router-dom";
 const SignUp = () => {
     const [isSignUp, setIsSignUp] = useState(true);
     const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
-    // const [token, setToken] = useState(null);
 
     const changeHandlerEmail = (e) => {
-        setEmail(e.target.value);
+        // setEmail(e.target.value);
+        const getEmail = e.target.value;
+        setEmail(getEmail);
+        const regEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        setEmailError(regEx.test(getEmail) ? '' : 'invalid email address');
+        console.log('trigred')
+
     }
     const changeHandlerPassword = (e) => {
-        setPassword(e.target.value);
+        // setPassword(e.target.value);
+        const getPassword = e.target.value;
+        setPassword(getPassword);
+        setPasswordError(getPassword.length >= 6 ? '' : 'Password must be at least 6 characters long');
     }
 
 
+
+    //email and password authentication
     const handleButtonClick = async (e) => {
         e.preventDefault();
-        if (email === '' && password === '') {
-            console.log('no field is empty')
-        } 
 
-        if (isSignUp) {
-            try {
-              const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-              const user = userCredential.user;
-              const token = await user.getIdToken();
-              localStorage.setItem('authToken', token);
-        
-              console.log('Token:', token);
-              alert('Data is successfully stored in Firebase');
-              setEmail('');
-              setPassword('');
-              navigate('/home');
-            } catch (error) {
-              const errorMessage = error.message;
-              alert("You already have an account. Please log in.");
-              console.log('Error:', errorMessage);
+        if (email === '' && password === '') {
+            alert('please enter the email and pssword')
+        } else {
+
+            if (emailError === '' && passwordError === '') {
+
+                if (isSignUp) {
+                    try {
+                        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                        const user = userCredential.user;
+                        const token = await user.getIdToken();
+                        localStorage.setItem('accessToken', token);
+
+                        console.log('Token:', token);
+                        alert('Data is successfully stored in Firebase');
+                        setEmail('');
+                        setPassword('');
+                        { token ? navigate('/home') : navigate('/signup') };
+
+                    } catch (error) {
+                        const errorMessage = error.message;
+                        alert("You already have an account. Please log in.");
+                        console.log('Error:', errorMessage);
+                    }
+                } else {
+                    try {
+                        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                        const user = userCredential.user;
+                        const token = await user.getIdToken();
+                        localStorage.setItem('accessToken', token);
+
+                        console.log('Token:', token);
+                        alert('Data is successfully stored in Firebase');
+                        setEmail('');
+                        setPassword('');
+                        { token ? navigate('/home') : navigate('/signup') };
+                    } catch (error) {
+                        const errorMessage = error.message;
+                        alert("please create an account first");
+                        console.log('Error:', errorMessage);
+                    }
+
+                }
+            } else {
+                setIsSubmitted(true);
+                alert('invalid email and password...!');
             }
-          } else {
-            try {
-              const userCredential = await signInWithEmailAndPassword(auth, email, password);
-              const user = userCredential.user;
-              const token = await user.getIdToken();
-              localStorage.setItem('authToken', token);
-        
-              console.log('Token:', token);
-              alert('Data is successfully stored in Firebase');
-              setEmail('');
-              setPassword('');
-              navigate('/home');
-            } catch (error) {
-              const errorMessage = error.message;
-              alert('Error: ' + errorMessage);
-              console.log('Error:', errorMessage);
-            }
-          }
+
+
+        }
     }
 
     const toggleMode = () => {
         setIsSignUp((prevMode) => !prevMode);
     };
+
+
+    //google authentication
+    const googleAccount = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                console.log("result", result);
+                navigate('/home');
+                const token = result.user.accessToken;
+                localStorage.setItem('accessToken', token);
+                console.log('this is token google token man ', token);
+            })
+            .catch((err) => {
+                console.log(err.message, 'error occured')
+            })
+    }
+
+
+
+    //github authentication
+
+    const gitHubAccount = () => {
+        const auth = getAuth();
+        signInWithPopup(auth, gitProvider)
+            .then((result) => {
+                console.log("this is result", result);
+                navigate('/home');
+                const token = result.user.accessToken;
+                localStorage.setItem('accessToken', token);
+                console.log("this is a github token", token);
+            }).catch((err) => {
+                console.log(err.message, 'error occured')
+            })
+
+    }
+
+
 
 
     return (
@@ -97,7 +160,7 @@ const SignUp = () => {
                                 '&:hover': {
                                     backgroundColor: 'lightgrey',
                                 }
-                            }}>
+                            }} onClick={googleAccount}>
                                 <Typography sx={{ padding: '5px 9px 0px 15px' }}> <Icon icon="devicon:google" width="15" height="15" /></Typography>
 
                                 <Typography fontFamily={'Lato,Arial'} sx={{ fontSize: '13px', lineHeight: '25px' }}> Continue with Google</Typography>
@@ -107,7 +170,7 @@ const SignUp = () => {
                                 '&:hover': {
                                     backgroundColor: 'lightgrey',
                                 }
-                            }}>
+                            }} onClick={gitHubAccount}>
                                 <Typography sx={{ padding: '5px 9px 0px 15px' }}> <Icon icon="devicon:github" width="18" height="18" /></Typography>
 
                                 <Typography fontFamily={'Lato,Arial'} sx={{ fontSize: '13px', lineHeight: '25px' }}> Continue with Git Hub</Typography>
@@ -138,10 +201,10 @@ const SignUp = () => {
                         </Grid>
                         <Grid container justifyContent='center' marginBottom={3}>
                             <Grid marginBottom={1}>
-                                <TextField id="outlined-basic" label="Email address" size="small" variant='outlined' type="email" name="email" value={email} onChange={changeHandlerEmail} />
+                                <TextField id="outlined-basic" label="Email address" size="small" variant='outlined' type="email" name="email" value={email} onChange={changeHandlerEmail} error={isSubmitted && Boolean(emailError)} helperText={isSubmitted && emailError} />
                             </Grid>
                             <Grid>
-                                <TextField id="outlined-basic" label="Password" size="small" variant='outlined' type="password" name="password" value={password} onChange={changeHandlerPassword} />
+                                <TextField id="outlined-basic" label="Password" size="small" variant='outlined' type="password" name="password" value={password} onChange={changeHandlerPassword} error={isSubmitted && Boolean(passwordError)} helperText={isSubmitted ? passwordError : ''} />
                             </Grid>
                         </Grid>
 

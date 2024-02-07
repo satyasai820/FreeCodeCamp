@@ -11,11 +11,15 @@ import { Icon } from '@iconify/react';
 import { Button, Hidden, Menu, MenuItem } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../FireBase';
+import { signOut } from 'firebase/auth';
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: 'grey',
+    border:'3px solid black',
 
     '&:hover': {
         border: '3px solid #3A9BDC',
@@ -70,7 +74,7 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const navigate = useNavigate();
-    const token = localStorage.getItem('authToken');
+    let token = localStorage.getItem('accessToken');
 
     const handleButtonClick = (event) => {
         setMenuOpen(true);
@@ -78,11 +82,28 @@ export default function Navbar() {
     };
 
     const handleMenuClose = () => {
-        localStorage.removeItem('authToken');
-        navigate('/');
+       
         setMenuOpen(false);
 
     };
+    const tokenRemove = () => {
+
+
+        signOut(auth).then(() => {
+            localStorage.clear();
+            navigate('/');
+            token='';
+            console.log("token deleted", token);
+          }).catch((error) => {
+            console.log('hiii not working')
+          });
+      
+    }
+
+  
+   
+
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" style={{ backgroundColor: '#0A0A23' }}>
@@ -210,7 +231,7 @@ export default function Navbar() {
                                 <MenuItem sx={{
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
-                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
+                                }} onClick={tokenRemove} style={{ color: 'white' }}>
                                     {token ? (<Button  style={{ color: 'white' ,textTransform:'none'}}>
                                         Sign out
                                     </Button>) : (<Button disabled style={{ color: 'gray' }}>
@@ -222,23 +243,18 @@ export default function Navbar() {
                         </Hidden>
 
                         <Hidden smUp>
-                            <IconButton onClick={() => (navigate('/SignUp'))}>
-                                <Box sx={{
-                                    border: '2px solid #f79205',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    padding: '2px',
-                                    backgroundColor: '#FEAC32',
-                                    color: 'black',
-                                }}>
-                                    <Icon icon="material-symbols:login" width="25" height="25" />
+                            <IconButton >
+                                <Box sx={{border: '2px solid #f79205',display: 'flex',alignItems: 'center',padding: '2px',backgroundColor: '#FEAC32',color: 'black',}}>
+                                    {token ? (<Icon icon="mdi:user-circle" color='white' width="25" height="25" />) :  <Icon onClick={() => (navigate('/SignUp'))} icon="material-symbols:login" width="25" height="25" /> }
+                                   
                                 </Box>
                             </IconButton>
 
                         </Hidden>
                         <Hidden smDown>
-                            <IconButton onClick={() => (navigate('/SignUp'))}>
-                                <Button style={SignInbutton}>Sign in</Button>
+                            <IconButton >
+                                {token ? (<Icon icon="mdi:user-circle" color='white' width="35" height="35" />) :(<Button onClick={() => (navigate('/SignUp'))} style={SignInbutton}>Sign in</Button>)}
+                                
                             </IconButton>
                         </Hidden>
                     </Box>
