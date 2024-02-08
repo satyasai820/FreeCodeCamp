@@ -32,7 +32,7 @@ const SignUp = () => {
         // setPassword(e.target.value);
         const getPassword = e.target.value;
         setPassword(getPassword);
-        setPasswordError(getPassword.length >= 6 ? '' : 'Password must be at least 6 characters long');
+        setPasswordError(getPassword.length >= 6 ? '' : 'invalid password');
     }
 
 

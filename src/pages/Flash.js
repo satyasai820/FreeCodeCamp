@@ -26,7 +26,7 @@ const Flash = () => {
                     size={60}
                     id="spinner"
                 />) : (
-                    <>
+                    < div style={{backgroundColor:'white'}}>
                         <Navbar />
                         <Content />
                         <Cards />
@@ -36,7 +36,7 @@ const Flash = () => {
                         <QuestionComponent />
                         <ButtonComponent />
                         <Footer />
-                    </>
+                    </div>
 
                 )
 

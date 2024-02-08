@@ -1,19 +1,22 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import {  Typography } from "@mui/material";
+import PercentageComponent from "../components/PercentageComponent";
+import BoxInformation from '../components/BoxInformation';
+import Footer from '../components/Footer';
 
 
 
 const Home = () => {
    
     return(
-        <>
+        <div  style={{backgroundColor:'#F5F6F7'}}>
         <Navbar />
-        <center >
-        <Typography marginTop={10}>Hello Welcome to Home Page Buddy</Typography>
-        </center>
+        <PercentageComponent />
+        <BoxInformation />
+        <Footer/>
+        
            
-        </>
+        </div>
     );
 }
 export default Home;

@@ -8,7 +8,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const theme = createTheme();
+// const theme = createTheme();
+const theme = createTheme({
+    palette: {
+        // primary: { main: '#424bf5' },
+        // secondary: { main: '#f50057' },
+        background: {
+            default: '#F5F6F7',
+        },
+    },
+});
 
 theme.typography.h1 = {
  

@@ -4,62 +4,17 @@ import React from "react";
 const Footer = () => {
 
     const footerData = [
-        {
-            name: 'freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charitable organization (United States Federal Tax Identification Number: 82-0779546).'
-        },
-        {
-            name: 'Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.'
-        },
-        {
-            name: ' Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.'
-        },
+        {name: 'freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charitable organization (United States Federal Tax Identification Number: 82-0779546).'},
+        {name: 'Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.'},
+        {name: ' Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.'},
     ]
 
-    const aboutData = [
-        {
-            name: 'About',
-        },
-        {
-            name: 'Alumni Network',
-        },
-        {
-            name: 'Open Source',
-        },
-        {
-            name: 'Shop',
-        },
-        {
-            name: 'Support',
-        },
-        {
-            name: 'Sponsors',
-        },
-        {
-            name: 'Academic Honesty',
-        },
-        {
-            name: 'Code of Conduct',
-        },
-        {
-            name: 'Privacy Policy',
-        },
-        {
-            name: 'Terms of Service',
-        },
-        {
-            name: 'Copyright Policy',
-        }
-    ]
+    const aboutData = [{ name: 'About',},{name: 'Alumni Network',},{name: 'Open Source',},{name: 'Shop',},{name: 'Support',},{name: 'Sponsors',},{name: 'Academic Honesty', }, { name: 'Code of Conduct',},{name: 'Privacy Policy',},{name: 'Terms of Service',},{name: 'Copyright Policy',}]
 
 
     return (
         <>
-            <Grid container sx={{
-                justifyContent: 'center',
-                backgroundColor: '#DFDFE2',
-
-
-            }}>
+            <Grid container marginTop={10} sx={{ justifyContent: 'center', backgroundColor: '#DFDFE2'}}>
                 <Grid container >
                 </Grid>
                 <Grid container sx={{ width: { xs: '97%', sm: '95%', lg: '90%', xl: '70%' }, fontSize: '10px' }} >
@@ -126,12 +81,12 @@ const Footer = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid container marginTop={2}>
+                    <Grid container marginTop={2} justifyContent="center" marginBottom={5} sx={{borderTop:{lg:'1px solid lightgrey'}}}>
                         {
                             aboutData.map((item) => (
                                 <>
-                                    <Grid >
-                                        <Typography variant="p" lineHeight={4} sx={{ marginRight: '25px', display: 'flex'}}>{item.name}</Typography>
+                                    <Grid  >
+                                        <Typography variant="p"  sx={{ marginRight: '25px', display: 'flex', lineHeight:{xs:'2.5',lg:'6'} }}>{item.name}</Typography>
                                     </Grid>
                                 </>
                             ))

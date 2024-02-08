@@ -100,11 +100,7 @@ export default function Navbar() {
       
     }
 
-  
-   
-
-
-    return (
+  return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" style={{ backgroundColor: '#0A0A23' }}>
                 <Toolbar>
