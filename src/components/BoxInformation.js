@@ -2,19 +2,11 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { Icon } from '@iconify/react';
+import { Link } from "react-router-dom";
 
 const BoxInformation = () => {
 
     const BoxData = [
-        {
-            Icon: 'fluent:phone-laptop-16-regular',
-            title: 'Responsive Web Design Certification',
-        },
-        {
-            Icon: 'ion:logo-javascript',
-            title: 'JavaScript Algorithms and Data Structures (Beta) Certification',
-
-        },
         {
             Icon: 'carbon:logo-react',
             title: 'Front End Development Libraries Certification',
@@ -79,35 +71,86 @@ const BoxInformation = () => {
     return (
         <>
             <Box >
-                <Typography sx={{marginTop: {xs: '20px',sm: '30px',md: '60px',lg: '80px',xl: '80px',},marginLeft: {xs: '15px',sm: '100px', md: '200px',lg: '300px',xl: '290px',},marginRight: {sm: '200px',md: '400px',lg: '300px',xl: '350px',},fontWeight: '600',fontSize: {xs: '25px',sm: '40px',md: '40px',lg: '35px',xl: '33px',},marginBottom: '20px',}}>
-                Earn free verified certifications with freeCodeCamp's core curriculum:</Typography>
+                <Typography sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: '290px', }, marginRight: { sm: '200px', md: '400px', lg: '300px', xl: '350px', }, fontWeight: '600', fontSize: { xs: '25px', sm: '40px', md: '40px', lg: '35px', xl: '33px', }, marginBottom: '20px', }}>
+                    Earn free verified certifications with freeCodeCamp's core curriculum:</Typography>
             </Box>
+
+            <Link to="/detail/responsive" style={{ textDecoration: 'none',color:'inherit' }}>
+
+                <Grid container sx={{ justifyContent: 'center', }}>
+                    <Grid sx={{
+                        alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', },
+                        paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
+                        ':hover': {
+                            backgroundColor: '#0A0A23',
+                            color: '#D0D0D5',
+                        },
+                    }}>
+                        <Icon icon='fluent:phone-laptop-16-regular' width="50" height="50" />
+
+                        <Typography sx={{
+                            fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
+                            fontSize: { xs: '17px', sm: '19px', lg: '20px', xl: '15px', }, marginLeft: '10px',
+                        }} >
+                            Responsive Web Design Certification
+                        </Typography>
+                        <Box sx={{ marginLeft: 'auto', }}>
+                            <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
+                        </Box>
+
+                    </Grid>
+                </Grid>
+
+            </Link>
+
+            <Link to="/detail/javascript"  style={{ textDecoration: 'none',color:'inherit' }}>
+            <Grid container sx={{ justifyContent: 'center' }}>
+                <Grid sx={{
+                    alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', },
+                    paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
+                    ':hover': {
+                        backgroundColor: '#0A0A23',
+                        color: '#D0D0D5',
+                    },
+                }}>
+                    <Icon icon='ion:logo-javascript' width="50" height="50" />
+
+                    <Typography sx={{
+                        fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
+                        fontSize: { xs: '17px', sm: '19px', lg: '20px', xl: '15px', }, marginLeft: '10px',
+                    }} >
+                        JavaScript Algorithms and Data Structures (Beta) Certification
+                    </Typography>
+                    <Box sx={{ marginLeft: 'auto', }}>
+                        <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
+                    </Box>
+
+                </Grid>
+            </Grid>
+            </Link>
 
             {BoxData.map((item) => (
                 <>
-                    <Grid container sx={{justifyContent: 'center', }}>
-                        <Grid sx={{ alignItems: 'center',border: '3px solid black', height: {xs: '75px', xl: '65px',},marginTop: '8px', width: {xs: '90%',sm: '75%',md: '60%',},paddingLeft: '10px',backgroundColor: '#D0D0D5',
+                    <Grid container sx={{ justifyContent: 'center', }}>
+                        <Grid sx={{
+                            alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', }, paddingLeft: '10px', backgroundColor: '#D0D0D5',
                             ':hover': {
                                 backgroundColor: '#0A0A23',
-                                color: '#D0D0D5',},
-                                 display: 'flex',}}>
+                                color: '#D0D0D5',
+                            },
+                            display: 'flex',
+                        }}>
                             <Icon icon={item.Icon} width="50" height="50" />
 
                             <Typography sx={{
                                 fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
                                 fontSize: {
-                                    xs: '17px',
-                                    sm: '19px',
-                                    lg: '20px',
-                                    xl: '15px',
-                                },
-                                marginLeft: '10px',
+                                    xs: '17px', sm: '19px', lg: '20px', xl: '15px',
+                                }, marginLeft: '10px',
                             }} >
                                 {item.title}
                             </Typography>
-                            <Box sx={{
-                                marginLeft: 'auto',
-                            }}>
+                            <Box sx={{ marginLeft: 'auto', }}>
                                 <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
                             </Box>
 
@@ -117,60 +160,31 @@ const BoxInformation = () => {
             ))}
 
             <Box >
-                <Typography sx={{
-                    marginTop: {
-                        xs: '20px',
-                        sm: '30px',
-                        md: '60px',
-                        lg: '80px',
-                        xl: '40px',
-                    },
-                    marginLeft: {
-                        xs: '15px',
-                        sm: '100px',
-                        md: '200px',
-                        lg: '300px',
-                        xl: '290px',
-                    },
-                    marginRight: {
-                        sm: '100px',
-                        md: '200px',
-                        lg: '300px',
-                        xl: '350px',
-                    },
-                    fontWeight: '600',
-                    fontSize: {
-                        xs: '25px',
-                        sm: '40px',
-                        md: '40px',
-                        lg: '40px',
-                        xl: '33px',
-                    },
-                    marginBottom: '20px',
-                }}>Prepare for the developer interview job search:</Typography>
+                <Typography sx={{ margin: { xs: '20px 0px 0px 15px', sm: '30px 100px 0px 100px', md: '60px 200px 0px 200px', lg: '80px 300px 0px 300px', xl: '40px 350px 0px 290px', }, fontWeight: '600', fontSize: { xs: '25px', sm: '40px', md: '40px', lg: '40px', xl: '33px', }, marginBottom: '20px', }}>
+                    Prepare for the developer interview job search:</Typography>
             </Box>
+
 
             {Box2Data.map((item) => (
                 <>
-                    <Grid container sx={{ justifyContent: 'center',}}>
-                        <Grid sx={{alignItems: 'center',border: '3px solid black',height: {xs: '75px', xl: '65px',}, marginTop: '8px',width: {xs: '90%',sm: '75%',md: '60%',},
-                            paddingLeft: '10px',
-                            backgroundColor: '#D0D0D5',
+                    <Grid container sx={{ justifyContent: 'center', }}>
+                        <Grid sx={{
+                            alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', },
+                            paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
                             ':hover': {
                                 backgroundColor: '#0A0A23',
                                 color: '#D0D0D5',
                             },
-                            display: 'flex',
-
                         }}>
                             <Icon icon={item.Icon} width="50" height="50" />
 
                             <Typography sx={{
                                 fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
-                                fontSize: {xs: '17px',sm: '19px',lg: '20px',xl: '15px',}, marginLeft: '10px',}} >
+                                fontSize: { xs: '17px', sm: '19px', lg: '20px', xl: '15px', }, marginLeft: '10px',
+                            }} >
                                 {item.title}
                             </Typography>
-                            <Box sx={{ marginLeft: 'auto',}}>
+                            <Box sx={{ marginLeft: 'auto', }}>
                                 <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
                             </Box>
 
