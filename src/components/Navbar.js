@@ -19,7 +19,7 @@ const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: 'grey',
-    border:'3px solid black',
+    border: '3px solid black',
 
     '&:hover': {
         border: '3px solid #3A9BDC',
@@ -82,25 +82,25 @@ export default function Navbar() {
     };
 
     const handleMenuClose = () => {
-       
+
         setMenuOpen(false);
 
     };
+
+
     const tokenRemove = () => {
-
-
         signOut(auth).then(() => {
             localStorage.clear();
             navigate('/');
-            token='';
+            token = '';
             console.log("token deleted", token);
-          }).catch((error) => {
+        }).catch((error) => {
             console.log('hiii not working')
-          });
-      
+        });
+
     }
 
-  return (
+    return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" style={{ backgroundColor: '#0A0A23' }}>
                 <Toolbar>
@@ -116,7 +116,7 @@ export default function Navbar() {
                         />
                     </Search>
                     <Box sx={{ marginLeft: { xs: '0%', lg: '15%', xl: '18%' } }}>
-                        <img src='./assets/images/FreeCodeCamp_logo.png' alt='s' width={{ xs: 100, md: 200 }} height={20} />
+                        <img src='https://design-style-guide.freecodecamp.org/downloads/fcc_primary_large.jpg' alt='s' width={{ xs: 100, md: 200 }} height={20} />
                     </Box>
                     <Box
                         sx={{
@@ -151,20 +151,8 @@ export default function Navbar() {
                             <IconButton>
                                 <Button
                                     onClick={handleButtonClick}
-                                    sx={{
-                                        border: '1px solid white',
-                                        color: 'white',
-                                        borderRadius: '0px',
-                                        textTransform: 'capitalize',
-                                        fontSize: '14px',
-                                        fontFamily: 'Lato, sans-serif',
-                                        padding: '3px',
-                                        ':hover': {
-                                            backgroundColor: 'white',
-                                            color: 'black',
-                                        },
-                                    }}
-                                >
+                                    sx={{ border: '1px solid white',color: 'white', borderRadius: '0px', textTransform: 'capitalize',fontSize: '14px', fontFamily: 'Lato, sans-serif',padding: '3px',
+                                        ':hover': {backgroundColor: 'white',color: 'black', },}}>
                                     Menu
                                 </Button>
                             </IconButton>
@@ -228,7 +216,7 @@ export default function Navbar() {
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} onClick={tokenRemove} style={{ color: 'white' }}>
-                                    {token ? (<Button  style={{ color: 'white' ,textTransform:'none'}}>
+                                    {token ? (<Button style={{ color: 'white', textTransform: 'none' }}>
                                         Sign out
                                     </Button>) : (<Button disabled style={{ color: 'gray' }}>
                                         Sign Out
@@ -240,17 +228,17 @@ export default function Navbar() {
 
                         <Hidden smUp>
                             <IconButton >
-                                <Box sx={{border: '2px solid #f79205',display: 'flex',alignItems: 'center',padding: '2px',backgroundColor: '#FEAC32',color: 'black',}}>
-                                    {token ? (<Icon icon="mdi:user-circle" color='white' width="25" height="25" />) :  <Icon onClick={() => (navigate('/SignUp'))} icon="material-symbols:login" width="25" height="25" /> }
-                                   
+                                <Box sx={{ border: '2px solid #f79205', display: 'flex', alignItems: 'center', padding: '2px', backgroundColor: '#FEAC32', color: 'black', }}>
+                                    {token ? (<Icon icon="mdi:user-circle" color='white' width="25" height="25" />) : <Icon onClick={() => (navigate('/SignUp'))} icon="material-symbols:login" width="25" height="25" />}
+
                                 </Box>
                             </IconButton>
 
                         </Hidden>
                         <Hidden smDown>
                             <IconButton >
-                                {token ? (<Icon icon="mdi:user-circle" color='white' width="35" height="35" />) :(<Button onClick={() => (navigate('/SignUp'))} style={SignInbutton}>Sign in</Button>)}
-                                
+                                {token ? (<Icon icon="mdi:user-circle" color='white' width="35" height="35" />) : (<Button onClick={() => (navigate('/SignUp'))} style={SignInbutton}>Sign in</Button>)}
+
                             </IconButton>
                         </Hidden>
                     </Box>

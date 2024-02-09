@@ -29,7 +29,6 @@ const SignUp = () => {
 
     }
     const changeHandlerPassword = (e) => {
-        // setPassword(e.target.value);
         const getPassword = e.target.value;
         setPassword(getPassword);
         setPasswordError(getPassword.length >= 6 ? '' : 'invalid password');

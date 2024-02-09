@@ -1,9 +1,11 @@
-import { Typography } from "@mui/material";
+
 import React from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FirstComponent from "../components/FirstComponent";
 import CourseComponent from "../components/CourseComponent";
+import BoxInformation from "../components/BoxInformation";
+import Footer from "../components/Footer";
 
 
 const Detail = () => {
@@ -34,7 +36,9 @@ const updated = data.filter((item)=>item.status === routename)
             <Navbar/>
             <FirstComponent />
             <CourseComponent />
-            <Typography variant="h1" sx={{textAlign:'center',marginTop:'90px',}}>{updated[0].name}</Typography>
+            <BoxInformation />
+            <Footer />
+            {/* <Typography variant="h1" sx={{textAlign:'center',marginTop:'90px',}}>{updated[0].name}</Typography> */}
         </div>
     )
 }

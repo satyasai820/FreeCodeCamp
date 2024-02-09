@@ -7,15 +7,6 @@ import { Link } from "react-router-dom";
 const BoxInformation = () => {
 
     const BoxData = [
-        // {
-        //     Icon: 'fluent:phone-laptop-16-regular',
-        //     title: 'Responsive Web Design Certification',
-        // },
-        // {
-        //     Icon: 'ion:logo-javascript',
-        //     title: 'JavaScript Algorithms and Data Structures (Beta) Certification',
-
-        // },
         {
             Icon: 'carbon:logo-react',
             title: 'Front End Development Libraries Certification',

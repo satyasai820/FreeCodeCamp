@@ -8,17 +8,22 @@ import Detail from './pages/Detail';
 
 
 function App() {
- 
-
   return (
+    
     <>
       <Routes>
         <Route path="/" element={<Flash />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={ <Home />} />
         <Route path='/detail/:id' element={<Detail/>}/>
+        
       </Routes>
+
+  
+      
+
     </>
+    
   );
 }
 
