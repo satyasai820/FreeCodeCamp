@@ -1,41 +1,77 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography, Grid, Button } from "@mui/material";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 
-const AccordionComponent = () => {
+import { AccordionGetData } from "../Redux/Api/Getdata";
+import { SetData2 } from "../Redux/Actions/Dropdataaction";
+
+const AccordionComponent = ( 
+    {data2, SetData2}
+    ) => {
+
+    useEffect( () => {
+        getAccordionData();
+
+    },[])
+
+    const getAccordionData = async () => {
+        try{
+            const getData = await AccordionGetData();
+            
+            SetData2(getData);
+            // alert('hi')
+
+            console.log("accordion data is here", getData);
+        }
+        catch(error){
+            console.log("Here Im getting error in Accordion Component...");
+        }
+
+    }
 
     const gridData = [{ num: '1' }, { num: '2' }, { num: '3' }, { num: '4' }, { num: '5' }, { num: '6' }, { num: '7' }, { num: '8' }, { num: '9' }, { num: '10' }, { num: '11' }, { num: '12' }, { num: '13' }, { num: '14' }, { num: '15' }, { num: '16' }, { num: '17' }, { num: '18' }, { num: '19' }, { num: '20' }, { num: '21' }, { num: '22' }, { num: '23' }, { num: '24' }, { num: '25' }, { num: '26' }, { num: '27' }, { num: '28' }, { num: '29' }, { num: '30' }, { num: '31' }, { num: '32' }, { num: '33' }, { num: '34' }, { num: '35' }, { num: '36' }, { num: '37' }, { num: '38' }, { num: '39' }, { num: '40' }, { num: '41' }, { num: '42' }, { num: '43' }, { num: '44' }, { num: '45' }, { num: '46' }, { num: '47' }, { num: '48' }, { num: '49' }, { num: '50' }]
-    const accordionData = [
-        {
-            title: 'Learn HTML by Building a cat photo App',
-            para1: ' HTML tags give a webpage its structure. You can use HTML tags to add photos, buttons, and other elements to your webpage.',
-            para2: 'In this course, you`ll learn the most common HTML tags by building your own cat photo app.'
-        },
-        {
-            title: 'Learn Basic CSS by Building a Cafe Menu ',
-            para1: 'CSS tells the browser how to display your webpage. You can use CSS to set the color, font, size, and other aspects of HTML elements.',
-            para2: 'In this course, you`ll learn CSS by designing a menu page for a cafe webpage.'
-        },
-        {
-            title: 'Learn CSS Colors by Building a Set of Colored Markers',
-            para1: 'Selecting the correct colors for your webpage can greatly improve the aesthetic appeal to your readers.',
-            para2: 'In this course, you`ll build a set of colored markers. You`ll learn different ways to set color values and how to pair colors with each other.'
-        },
-        {
-            title: 'Learn HTML Form by Building a Registration Form',
-            para1: 'You can use HTML forms to collect information from people who visit your webpage.',
-            para2: 'In this course, you`ll learn HTML forms by building a signup page. You`ll learn how to control what types of data people can type into your form, and some new CSS tools for styling your page.'
-        },
-    ]
+    // const accordionData = [
+    //     {
+    //         title: 'Learn HTML by Building a cat photo App',
+    //         para1: ' HTML tags give a webpage its structure. You can use HTML tags to add photos, buttons, and other elements to your webpage.',
+    //         para2: 'In this course, you`ll learn the most common HTML tags by building your own cat photo app.'
+    //     },
+    //     {
+    //         title: 'Learn Basic CSS by Building a Cafe Menu ',
+    //         para1: 'CSS tells the browser how to display your webpage. You can use CSS to set the color, font, size, and other aspects of HTML elements.',
+    //         para2: 'In this course, you`ll learn CSS by designing a menu page for a cafe webpage.'
+    //     },
+    //     {
+    //         title: 'Learn CSS Colors by Building a Set of Colored Markers',
+    //         para1: 'Selecting the correct colors for your webpage can greatly improve the aesthetic appeal to your readers.',
+    //         para2: 'In this course, you`ll build a set of colored markers. You`ll learn different ways to set color values and how to pair colors with each other.'
+    //     },
+    //     {
+    //         title: 'Learn HTML Form by Building a Registration Form',
+    //         para1: 'You can use HTML forms to collect information from people who visit your webpage.',
+    //         para2: 'In this course, you`ll learn HTML forms by building a signup page. You`ll learn how to control what types of data people can type into your form, and some new CSS tools for styling your page.'
+    //     },
+    // ]
+
+    const param = useParams();
+    const routename = param.id;
+    console.log('i am data2 in accordian',data2)
+    const extractData = data2;
+
+    const matter = extractData.filter((item) => item.status === routename);
+    console.log('Im accordion component data', matter);
+
     return(
         <>
          <Grid container justifyContent='center'>
                         <Grid sx={{ width: { md: '80%' } }}>
 
-                            {accordionData.map((item) => (
+                            {matter.map((item) => (
                                 <>
                                     <Accordion sx={{ borderRadius: '0', marginBottom: '5px', boxShadow: 'none' }}>
                                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header" sx={{ fontFamily: '"Hack-ZeroSlash",monospace', fontWeight: '700', color: '#1B1B32', lineHeight: '2.5', fontSize: { xs: '20px', xl: '18px' }, '&:hover': { backgroundColor: '#D0D0D5' } }}> {item.title} </AccordionSummary>
@@ -79,4 +115,15 @@ const AccordionComponent = () => {
     );
 }
 
-export default AccordionComponent;
+const mapStateToProps = (state) => {
+    return {
+        data2: state.Reducer2.data2,
+
+    }
+}
+
+const mapDispatchToProps = {
+    SetData2,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccordionComponent);

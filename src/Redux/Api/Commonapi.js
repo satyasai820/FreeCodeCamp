@@ -1,0 +1,1 @@
+export const Base_url = "https://emailpasswordlogin-74e91-default-rtdb.firebaseio.com";

@@ -11,25 +11,9 @@ import Footer from "../components/Footer";
 const Detail = () => {
 
 
-     const data = [
-        {
-            name:"Hello Welcome to Java Script details Page",
-            status:"javascript"
-        },
-
-        {
-            name:"Hello Welcome to Responsive Web Design details Page",
-            status:"responsive"
-        },
-
-     ]
-
-
 const pram = useParams();
 const routename = pram.id;
 console.log('routename',routename)
-
-const updated = data.filter((item)=>item.status === routename)
 
     return(
         <div style={{backgroundColor:'#F5F6F7'}} >
