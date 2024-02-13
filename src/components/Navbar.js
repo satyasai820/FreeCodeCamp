@@ -61,10 +61,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const SignInbutton = {
     border: '1px solid orange',
-    textTransform: 'capitalize',
+    textTransform: 'none',
     padding: '0px 12px',
     color: 'black',
-    backgroundColor: '#FEAC32',
+    background: 'linear-gradient(#fecc4c, #ffac33)',
     fontSize: '16px',
     borderRadius: '0',
 };

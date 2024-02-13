@@ -32,18 +32,7 @@ const Cards = () => {
     return (
         <>
             <Grid>
-                <Typography sx={{
-                    fontSize: {
-                        xs: '25px',
-                        sm: '40px',
-                        md: '40px',
-                        lg: '40px',
-                        xl: '35px',
-                    },
-                    textAlign: 'center',
-                    marginTop: '50px',
-                    fontWeight: '600',
-                }}>Here is what our alumni say about freeCodeCamp:</Typography>
+                <Typography sx={{fontSize: { xs: '25px', sm: '40px', md: '40px', lg: '40px', xl: '35px', }, textAlign: 'center', marginTop: '50px',fontWeight: '600',}}>Here is what our alumni say about freeCodeCamp:</Typography>
             </Grid>
 
             {cardData.map((item) => (

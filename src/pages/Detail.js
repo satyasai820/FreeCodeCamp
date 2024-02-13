@@ -20,9 +20,8 @@ console.log('routename',routename)
             <Navbar/>
             <FirstComponent />
             <CourseComponent />
-            <BoxInformation />
+            <BoxInformation width = '40%' />
             <Footer />
-            {/* <Typography variant="h1" sx={{textAlign:'center',marginTop:'90px',}}>{updated[0].name}</Typography> */}
         </div>
     )
 }

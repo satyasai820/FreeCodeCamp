@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { Icon } from '@iconify/react';
 import { Link } from "react-router-dom";
 
-const BoxInformation = () => {
+const BoxInformation = ({width}) => {
 
     const BoxData = [
         {
@@ -68,6 +68,10 @@ const BoxInformation = () => {
         }
     ]
 
+    // const boxStyle = {
+    //     width: width,
+    // }
+
     return (
         <>
             <Box >
@@ -78,8 +82,9 @@ const BoxInformation = () => {
             <Link to="/detail/responsive" style={{ textDecoration: 'none',color:'inherit' }}>
 
                 <Grid container sx={{ justifyContent: 'center', }}>
-                    <Grid sx={{
-                        alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', },
+                    <Grid  sx={{
+                        alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width:width,
+                        //  width: { xs: '90%', sm: '75%', md: '60%', },
                         paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
                         ':hover': {
                             backgroundColor: '#0A0A23',
