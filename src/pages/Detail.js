@@ -11,34 +11,17 @@ import Footer from "../components/Footer";
 const Detail = () => {
 
 
-     const data = [
-        {
-            name:"Hello Welcome to Java Script details Page",
-            status:"javascript"
-        },
-
-        {
-            name:"Hello Welcome to Responsive Web Design details Page",
-            status:"responsive"
-        },
-
-     ]
-
-
 const pram = useParams();
 const routename = pram.id;
 console.log('routename',routename)
-
-const updated = data.filter((item)=>item.status === routename)
 
     return(
         <div style={{backgroundColor:'#F5F6F7'}} >
             <Navbar/>
             <FirstComponent />
             <CourseComponent />
-            <BoxInformation />
+            <BoxInformation width='45%' marginLeft='420px' fontFamily = '"Hack-ZeroSlash",monospace' fontSize = '25px'  marginRight = '90px' />
             <Footer />
-            {/* <Typography variant="h1" sx={{textAlign:'center',marginTop:'90px',}}>{updated[0].name}</Typography> */}
         </div>
     )
 }

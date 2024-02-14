@@ -5,7 +5,7 @@ import BorderLinearProgress from '@mui/material/LinearProgress';
 const PercentageComponent = () => {
     return(
         <Grid container paddingTop={13} justifyContent='center'>
-            <Grid sx={{width:{sm:'75%',md:'70%',lg:'60%',xl:'50%'},textAlign:'center'}}>
+            <Grid sx={{width:{sm:'75%',md:'60%',lg:'60%',xl:'45%'},textAlign:'center'}}>
                 <Typography  fontFamily='"Hack-ZeroSlash",monospace' sx={{fontSize:{xs:'6vmin',sm:'25px'}, fontWeight:600}}>Welcome to freeCodeCamp.org</Typography>
                 <Typography sx={{marginTop:'30px',fontSize:'18px'}}>"It does not matter how slowly you go as long as you do not stop."</Typography>
                 <Box sx={{fontStyle: 'italic',fontWeight: 'regular',}}>-Confucius</Box>
