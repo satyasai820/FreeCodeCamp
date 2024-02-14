@@ -10,6 +10,7 @@ const initialState = {
                     data2:action.payload,
                 }
             default:
+                
                 return state;
         }
 }
