@@ -10,9 +10,7 @@ import { Icon } from "@iconify/react";
 import { AccordionGetData } from "../Redux/Api/Getdata";
 import { SetData2 } from "../Redux/Actions/Dropdataaction";
 
-const AccordionComponent = (
-    { data2, SetData2 }
-) => {
+const AccordionComponent = ({ data2, SetData2 }) => {
 
     useEffect(() => {
         getAccordionData();
