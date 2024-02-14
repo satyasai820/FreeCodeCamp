@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { Icon } from '@iconify/react';
 import { Link } from "react-router-dom";
 
-const BoxInformation = ({width}) => {
+const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight}) => {
 
     const BoxData = [
         {
@@ -68,14 +68,10 @@ const BoxInformation = ({width}) => {
         }
     ]
 
-    // const boxStyle = {
-    //     width: width,
-    // }
-
     return (
         <>
             <Box >
-                <Typography sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: '290px', }, marginRight: { sm: '200px', md: '400px', lg: '300px', xl: '350px', }, fontWeight: '600', fontSize: { xs: '25px', sm: '40px', md: '40px', lg: '35px', xl: '33px', }, marginBottom: '20px', }}>
+                <Typography lineHeight={1} fontFamily={fontFamily} sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: marginLeft, }, marginRight: { sm: '100px', md: marginRight ||'400px', lg: '300px', xl:'350px', }, fontWeight: '600', fontSize: { xs: '25px', sm:  fontSize||'40px', md:fontSize ||'40px', lg: fontSize||'35px', xl: fontSize ||'33px', }, marginBottom: '20px', }}>
                     Earn free verified certifications with freeCodeCamp's core curriculum:</Typography>
             </Box>
 
@@ -83,8 +79,8 @@ const BoxInformation = ({width}) => {
 
                 <Grid container sx={{ justifyContent: 'center', }}>
                     <Grid  sx={{
-                        alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width:width,
-                        //  width: { xs: '90%', sm: '75%', md: '60%', },
+                        alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px',
+                         width: { xs: '90%', sm: '75%', md: '60%', xl:width },
                         paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
                         ':hover': {
                             backgroundColor: '#0A0A23',
@@ -111,7 +107,7 @@ const BoxInformation = ({width}) => {
             <Link to="/detail/javascript"  style={{ textDecoration: 'none',color:'inherit' }}>
             <Grid container sx={{ justifyContent: 'center' }}>
                 <Grid sx={{
-                    alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', },
+                    alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', xl:width },
                     paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
                     ':hover': {
                         backgroundColor: '#0A0A23',
@@ -138,7 +134,7 @@ const BoxInformation = ({width}) => {
                 <>
                     <Grid container sx={{ justifyContent: 'center', }}>
                         <Grid sx={{
-                            alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', }, paddingLeft: '10px', backgroundColor: '#D0D0D5',
+                            alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', xl:width }, paddingLeft: '10px', backgroundColor: '#D0D0D5',
                             ':hover': {
                                 backgroundColor: '#0A0A23',
                                 color: '#D0D0D5',
@@ -165,8 +161,8 @@ const BoxInformation = ({width}) => {
             ))}
 
             <Box >
-                <Typography sx={{ margin: { xs: '20px 0px 0px 15px', sm: '30px 100px 0px 100px', md: '60px 200px 0px 200px', lg: '80px 300px 0px 300px', xl: '40px 350px 0px 290px', }, fontWeight: '600', fontSize: { xs: '25px', sm: '40px', md: '40px', lg: '40px', xl: '33px', }, marginBottom: '20px', }}>
-                    Prepare for the developer interview job search:</Typography>
+            <Typography lineHeight={1} fontFamily={fontFamily} sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: marginLeft, }, marginRight: { sm: '60px', md: '200px', lg: '300px', xl: '350px', }, fontWeight: '600', fontSize: { xs: '25px', sm: fontSize || '40px', md: fontSize||'40px', lg: '30px', xl: fontSize ||'33px', }, marginBottom: '20px', }}>
+            Prepare for the developer interview job search:</Typography>
             </Box>
 
 
@@ -174,7 +170,7 @@ const BoxInformation = ({width}) => {
                 <>
                     <Grid container sx={{ justifyContent: 'center', }}>
                         <Grid sx={{
-                            alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', },
+                            alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', xl:width },
                             paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
                             ':hover': {
                                 backgroundColor: '#0A0A23',

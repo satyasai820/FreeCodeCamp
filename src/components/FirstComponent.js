@@ -41,18 +41,15 @@ const FirstComponent = ({
 
     const matter = extractedata.filter((item) => item.status === routename)
 
-    console.log("i am matter", typeof(matter))
+    console.log("i am matter", typeof (matter))
 
     return (
-
-
-
 
         <Grid container paddingTop={10} justifyContent='center'>
 
             {matter.map((item) => (
                 <Grid sx={{ width: { sm: '75%', md: '70%', lg: '60%', xl: '50%' }, textAlign: 'center', }}>
-                    <Typography fontFamily='"Hack-ZeroSlash",monospace' sx={{ fontSize: { xs: '30px', sm: '45px', md: '50px', lg: '45px', xl: '35px' }, fontWeight: 600 }}>{item.title}</Typography>
+                    <Typography paddingTop={5} lineHeight={1} fontFamily='"Hack-ZeroSlash",monospace' sx={{ fontSize: { xs: '30px', sm: '45px', md: '50px', lg: '45px', xl: '35px' }, fontWeight: 600 }}>{item.title}</Typography>
                     <Grid sx={{ margin: '30px 0px 30px 0px' }}>
                         <Icon icon={item.icon} width="90" height="90" />
                     </Grid>
@@ -73,20 +70,13 @@ const FirstComponent = ({
 
                         </Grid>
                     </Grid>
-
                 </Grid>
 
             ))}
         </Grid>
 
 
-
-
-
-
-
-
-    );
+ );
 }
 
 const mapStateToProps = (state) => {

@@ -4,13 +4,7 @@ import Reducer2 from "./reducer2";
 
 
 
-
-
-
-const rootReducer = combineReducers({
-    Reducer2,
-    Reducer
-});
+const rootReducer = combineReducers({ Reducer2, Reducer });
 
 
 export default rootReducer;

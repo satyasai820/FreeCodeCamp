@@ -66,24 +66,6 @@ const AccordionComponent = (
 
 
                                         </Grid>
-
-                                {/* <Grid container marginTop={3} sx={{ paddingLeft: { xs: '8vmin', sm: '0px' } }} >
-                                    {(() => {
-                                        let a = 50; 
-                                        let elements = [];
-
-                                        for(let  i = 1; i <= a; i++){
-
-                                            elements.push(
-                                                <Grid key={i} textAlign='center' item xs={2} sm={1} xl={1} sx={{ border: '1px dashed #D0D0D5', marginLeft: '15px', marginBottom: '12px', '&:hover': { backgroundColor: '#D0D0D5' } }}>
-                                                    <Typography sx={{ margin: '10px' }}>{i}</Typography>
-                                                </Grid>
-                                            );
-
-                                        }
-
-                                    })()}
-                                    </Grid> */}
                             </Accordion>
                         </>
                     ))}

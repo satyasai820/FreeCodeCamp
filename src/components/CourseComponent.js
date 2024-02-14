@@ -17,8 +17,6 @@ const CourseComponent = () => {
                     <Grid container justifyContent='center'> 
                     <Grid sx={{ width:{ xs:'95%', md: '80%'}, justifyContent:'center', }}>
                         { token ? (<Typography sx={{border:'3px solid black', fontFamily:'"Lato",sans-serif', textAlign:'center', lineHeight:'25px',backgroundColor:'#D0D0D5', '&:hover':{backgroundColor:'#0A0A23', color:'#D0D0D5'}}}>Go to settings to claim your certification</Typography>):(<SecondButton />)}
-                    
-
                     </Grid>
                     </Grid>
                   

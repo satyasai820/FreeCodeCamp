@@ -1,6 +1,5 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import { Icon } from "@iconify/react";
 
 const Footer = () => {
 
@@ -43,7 +42,7 @@ const Footer = () => {
                                 <Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{ lineHeight: { xs: '45px', xl: '26px' }, fontWeight: '550', fontSize: { xs: '18px', xl: '14px' } }} >Trending Guides</Typography>
                             </Grid>
 
-                            <Grid container item xs={12} sm={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column'>
+                            <Grid container item xs={12} sm={4} md={6} lg={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column'>
                                 {sideData.map((item) => (
                                     <Typography variant="p" > {item.name}</Typography>
                                 ))}
@@ -56,24 +55,23 @@ const Footer = () => {
                             </Grid>
                             <Grid container item xs={12} sm={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column'>
                                 {sideData3.map((item) => (
-                                    <Typography variant="p" >{item.name}</Typography>
+                                    <Typography sx={{display:{md:'none', lg:'block'}}} variant="p" >{item.name}</Typography>
 
                                 ))}
                             </Grid>
                             <Grid container justifyContent='center'>
                                 <Grid textAlign='center' sx={{ marginTop: '15px' }}>
-                                    <Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{ lineHeight: { xs: '45px', xl: '26px' }, fontWeight: '550', fontSize: { xs: '18px', xl: '14px' } }} >Mobile App</Typography>
-                                    {/* <Grid container> */}
-                                    
-                                    <Grid sx={{ display: { xs: 'block', sm: 'flex' }, flexDirection: 'row',  }}>
-                                        <img src="https://digitopoly.files.wordpress.com/2016/06/app-store-logo.png" width='120vmin' alt="App Store Logo" />
-                                        <img style={{marginLeft:'10px'}} src="https://en.logodownload.org/wp-content/uploads/2019/06/get-it-on-google-play-badge.png" width='140vmin' alt="Google Play Badge" />
-                                    </Grid>
-                                    {/* </Grid> */}
+                                    <Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{ lineHeight: { xs: '55px', xl: '36px' }, fontWeight: '550', fontSize: { xs: '18px', xl: '14px' } }} >Mobile App</Typography>
+                                    <Grid container>
+                                        <Grid item xs={12} sm={6}>
+                                            <img style={{paddingRight:'5px'}} src="https://www.tapsmart.com/wp-content/uploads/2015/08/app-store-badge.png" width='131vmin' alt="App Store Logo" />
+                                            </Grid>
+                                            <Grid item xs={12} sm={6} sx={{marginTop:{xs:'15px', sm:'0px'}}}>
+                                            <img  src="https://en.logodownload.org/wp-content/uploads/2019/06/get-it-on-google-play-badge.png" width='136vmin' alt="Google Play Badge" />
 
-                                    {/* <Icon icon="uil:facebook" width="25" height="25" />
-                                    <Icon style={{ marginLeft: '8px' }} icon="streamline:instagram-solid" width="25" height="25" />
-                                    <Icon style={{ marginLeft: '8px' }} icon="bi:twitter" width="25" height="25" /> */}
+                                            </Grid>
+                                        
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>

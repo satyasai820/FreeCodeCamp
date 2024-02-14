@@ -7,15 +7,13 @@ import Footer from '../components/Footer';
 
 
 const Home = () => {
-   
-    return(
-        <div  style={{backgroundColor:'#F5F6F7'}}>
-        <Navbar />
-        <PercentageComponent />
-        <BoxInformation />
-        <Footer/>
-        
-           
+
+    return (
+        <div style={{ backgroundColor: '#F5F6F7' }}>
+            <Navbar />
+            <PercentageComponent />
+            <BoxInformation width='45%' marginLeft='420px' fontFamily='"Hack-ZeroSlash",monospace' fontSize='25px' marginRight='95px' />
+            <Footer />
         </div>
     );
 }
