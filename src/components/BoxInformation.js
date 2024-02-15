@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { Icon } from '@iconify/react';
 import { Link } from "react-router-dom";
 
-const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight}) => {
+const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight, display}) => {
 
     const BoxData = [
         {
@@ -95,7 +95,7 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight}) 
                         }} >
                             Responsive Web Design Certification
                         </Typography>
-                        <Box sx={{ marginLeft: 'auto', }}>
+                        <Box sx={{ marginLeft: 'auto', display: display || 'block' }}>
                             <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
                         </Box>
 
@@ -122,7 +122,7 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight}) 
                     }} >
                         JavaScript Algorithms and Data Structures (Beta) Certification
                     </Typography>
-                    <Box sx={{ marginLeft: 'auto', }}>
+                    <Box sx={{ marginLeft: 'auto', display: display || 'block'  }}>
                         <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
                     </Box>
 
@@ -151,7 +151,7 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight}) 
                             }} >
                                 {item.title}
                             </Typography>
-                            <Box sx={{ marginLeft: 'auto', }}>
+                            <Box sx={{ marginLeft: 'auto', display: display || 'block' }}>
                                 <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
                             </Box>
 
@@ -185,7 +185,7 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight}) 
                             }} >
                                 {item.title}
                             </Typography>
-                            <Box sx={{ marginLeft: 'auto', }}>
+                            <Box sx={{ marginLeft: 'auto', display:display || 'block' }}>
                                 <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
                             </Box>
 
