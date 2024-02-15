@@ -144,8 +144,12 @@ const SignUp = () => {
                 </AppBar>
 
                 <Grid container sx={{ justifyContent: 'center', marginTop: '30px' }}>
+                    
                     <Grid sx={{ border: '3px solid black', width: { xs: '95%', sm: '55%', md: '40%', lg: '28%', xl: '21%', backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' } }}>
-                        <Grid sx={{ marginTop: '30px', textAlign: 'center' }} >
+                    <Grid sx={{ textAlign:'end'}}>
+                        <Icon  onClick={() => navigate('/')} icon="mdi:cancel-bold" width="25" height="25" />
+                        </Grid>
+                        <Grid sx={{ textAlign: 'center' }} >
                             <img src="assets/images/SignUp_Logo.jpg" alt="logo" width={{ md: 200 }} height={20} />
 
                         </Grid>

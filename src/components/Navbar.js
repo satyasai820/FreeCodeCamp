@@ -140,19 +140,45 @@ export default function Navbar() {
                         }}><Icon icon="mdi:internet" width="25" height="25" /></Box>
 
                         <Hidden smUp>
-                            <IconButton >
-                                <Box sx={{ border: '1px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px', }}>
-                                    <Icon icon="ic:baseline-menu" color="white" width="25" height="25" />
-                                </Box>
 
+
+                            <IconButton>
+                                <Box sx={{ border: '1px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px', }}>
+                                    <Icon  onClick={handleButtonClick} icon="ic:baseline-menu" color="white" width="25" height="25" />
+                                    <Hidden mdUp>
+                                    <Menu
+                                anchorEl={anchorEl}
+                                open={menuOpen}
+                                onClose={handleMenuClose}
+                                PaperProps={{
+                                    style: {backgroundColor: 'black', color: 'white', width: '150px', marginLeft:'20px',  marginTop:'13px', },
+                                }}
+                            >
+                                <MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', paddingLeft:'20px' }} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </MenuItem>
+                                <MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', paddingLeft:'20px' }} onClick={handleMenuClose} style={{ color: 'white' }}> Curriculum </MenuItem>
+                                <MenuItem sx={{  fontFamily: 'Lato, sans-serif',fontSize: '14px', paddingLeft:'20px'}} onClick={handleMenuClose} style={{ color: 'white' }}>  Forum </MenuItem>
+                                <MenuItem sx={{fontFamily: 'Lato, sans-serif', fontSize: '14px', }} style={{ color: 'white' }}>
+                                    {token ? (<Button onClick={tokenRemove} style={{ color: 'white', textTransform: 'none' }}>
+                                        Sign out
+                                    </Button>) : (<Button disabled style={{ color: 'gray' }}>
+                                        Sign Out
+                                    </Button>)}
+                                </MenuItem>
+                            </Menu>
+                                    </Hidden>
+                                </Box>
                             </IconButton>
+
+
                         </Hidden>
                         <Hidden smDown>
                             <IconButton>
                                 <Button
                                     onClick={handleButtonClick}
-                                    sx={{ border: '1px solid white',color: 'white', borderRadius: '0px', textTransform: 'capitalize',fontSize: '14px', fontFamily: 'Lato, sans-serif',padding: '3px',
-                                        ':hover': {backgroundColor: 'white',color: 'black', },}}>
+                                    sx={{
+                                        border: '1px solid white', color: 'white', borderRadius: '0px', textTransform: 'capitalize', fontSize: '14px', fontFamily: 'Lato, sans-serif', padding: '3px',
+                                        ':hover': { backgroundColor: 'white', color: 'black', },
+                                    }}>
                                     Menu
                                 </Button>
                             </IconButton>
@@ -168,7 +194,7 @@ export default function Navbar() {
                                     },
                                 }}
                             >
-                                <MenuItem sx={{fontFamily: 'Lato, sans-serif', fontSize: '14px',}} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </MenuItem>
+                                <MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', }} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </MenuItem>
                                 <MenuItem sx={{
                                     borderBottom: '1px solid white',
                                     fontFamily: 'Lato, sans-serif',
@@ -210,8 +236,8 @@ export default function Navbar() {
                                 <MenuItem sx={{
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
-                                }} onClick={tokenRemove} style={{ color: 'white' }}>
-                                    {token ? (<Button style={{ color: 'white', textTransform: 'none' }}>
+                                }} style={{ color: 'white' }}>
+                                    {token ? (<Button onClick={tokenRemove} style={{ color: 'white', textTransform: 'none' }}>
                                         Sign out
                                     </Button>) : (<Button disabled style={{ color: 'gray' }}>
                                         Sign Out
@@ -220,7 +246,6 @@ export default function Navbar() {
                             </Menu>
 
                         </Hidden>
-
                         <Hidden smUp>
                             <IconButton >
                                 <Box sx={{ border: '2px solid #f79205', display: 'flex', alignItems: 'center', padding: '2px', backgroundColor: '#FEAC32', color: 'black', }}>
