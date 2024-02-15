@@ -20,7 +20,7 @@ console.log('routename',routename)
             <Navbar/>
             <FirstComponent />
             <CourseComponent />
-            <BoxInformation width='45%' marginLeft='420px' fontFamily = '"Hack-ZeroSlash",monospace' fontSize = '25px'  marginRight = '90px' />
+            <BoxInformation width='45%' marginLeft='420px' fontFamily = '"Hack-ZeroSlash",monospace' fontSize = '25px'  marginRight = '90px' display = 'none' />
             <Footer />
         </div>
     )
