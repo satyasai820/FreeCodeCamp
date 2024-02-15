@@ -82,7 +82,6 @@ const AccordionComponent = ({ data2, SetData2 }) => {
                             </Grid>
                         </Grid>
 
-
                     </Accordion>
 
                 </Grid>
