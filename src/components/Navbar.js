@@ -168,12 +168,7 @@ export default function Navbar() {
                                     },
                                 }}
                             >
-                                <MenuItem sx={{
-                                    fontFamily: 'Lato, sans-serif',
-                                    fontSize: '14px',
-                                }} onClick={handleMenuClose} style={{ color: 'white' }}>
-                                    Donate
-                                </MenuItem>
+                                <MenuItem sx={{fontFamily: 'Lato, sans-serif', fontSize: '14px',}} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </MenuItem>
                                 <MenuItem sx={{
                                     borderBottom: '1px solid white',
                                     fontFamily: 'Lato, sans-serif',
