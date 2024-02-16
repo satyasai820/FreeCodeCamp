@@ -132,18 +132,20 @@ export default function Navbar() {
                     >
                         <Box sx={{
                             border: '1px solid white',
-                            padding: '0 3px',
+                            // padding: '0 3px',
+                            padding:{xs:'0px 2px',sm:'2px 5px'},
+                            marginBottom:{xs:'7px ', sm:'0px'},
                             ':hover': {
                                 backgroundColor: 'white',
                                 color: 'black',
                             }
-                        }}><Icon icon="mdi:internet" width="25" height="25" /></Box>
+                        }}><Icon icon="mdi:internet" width="23" height="23" /></Box>
 
                         <Hidden smUp>
 
 
                             <IconButton>
-                                <Box sx={{ border: '1px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px', }}>
+                                <Box sx={{ border: '1px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom:'6px', padding:'1px'  }}>
                                     <Icon  onClick={handleButtonClick} icon="ic:baseline-menu" color="white" width="25" height="25" />
                                     <Hidden mdUp>
                                     <Menu
@@ -248,7 +250,7 @@ export default function Navbar() {
                         </Hidden>
                         <Hidden smUp>
                             <IconButton >
-                                <Box sx={{ border: '2px solid #f79205', display: 'flex', alignItems: 'center', padding: '2px', backgroundColor: '#FEAC32', color: 'black', }}>
+                                <Box sx={{ border: '2px solid #f79205', display: 'flex', alignItems: 'center',  backgroundColor: '#FEAC32', color: 'black',  marginBottom:'6px' }}>
                                     {token ? (<Icon icon="mdi:user-circle" color='white' width="25" height="25" />) : <Icon onClick={() => (navigate('/SignUp'))} icon="material-symbols:login" width="25" height="25" />}
 
                                 </Box>
