@@ -1,16 +1,20 @@
 
 import { Icon } from "@iconify/react";
 import { AppBar, Box, Button, Grid, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth, provider, gitProvider } from '../FireBase';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
 
 
 const SignUp = () => {
+
     const [isSignUp, setIsSignUp] = useState(true);
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -18,6 +22,16 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
+
+    const showToast = (message, type = 'success') => {
+        localStorage.setItem('toastMessage', message);
+        localStorage.setItem('toastType', type);
+        toast[type](message, {
+            autoClose: 6000,
+            style: { fontSize: '12px', color:'black', fontWeight:'bold' },
+        });
+    };
 
     const changeHandlerEmail = (e) => {
         // setEmail(e.target.value);
@@ -34,6 +48,13 @@ const SignUp = () => {
         setPasswordError(getPassword.length >= 6 ? '' : 'invalid password');
     }
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
 
 
     //email and password authentication
@@ -41,7 +62,7 @@ const SignUp = () => {
         e.preventDefault();
 
         if (email === '' && password === '') {
-            alert('please enter the email and pssword')
+            showToast('please enter the email and pssword')
         } else {
 
             if (emailError === '' && passwordError === '') {
@@ -54,17 +75,19 @@ const SignUp = () => {
                         localStorage.setItem('accessToken', token);
 
                         console.log('Token:', token);
-                        alert('Data is successfully stored in Firebase');
+                        showToast('Data is successfully added....!','success');
+
                         setEmail('');
                         setPassword('');
                         { token ? navigate('/home') : navigate('/signup') };
 
                     } catch (error) {
                         const errorMessage = error.message;
-                        alert("You already have an account. Please log in.");
+                        showToast("You already have an account. Please log in.!");
                         console.log('Error:', errorMessage);
                     }
-                } else {
+                }
+                else {
                     try {
                         const userCredential = await signInWithEmailAndPassword(auth, email, password);
                         const user = userCredential.user;
@@ -72,13 +95,13 @@ const SignUp = () => {
                         localStorage.setItem('accessToken', token);
 
                         console.log('Token:', token);
-                        alert('Data is successfully stored in Firebase');
+                        showToast('Data is successfully added....!');
                         setEmail('');
                         setPassword('');
                         { token ? navigate('/home') : navigate('/signup') };
                     } catch (error) {
                         const errorMessage = error.message;
-                        alert("please create an account first");
+                        showToast("please do sign-up first");
                         console.log('Error:', errorMessage);
                     }
 
@@ -87,7 +110,6 @@ const SignUp = () => {
                 setIsSubmitted(true);
                 alert('invalid email and password...!');
             }
-
 
         }
     }
@@ -106,6 +128,7 @@ const SignUp = () => {
                 const token = result.user.accessToken;
                 localStorage.setItem('accessToken', token);
                 console.log('this is token google token man ', token);
+                
             })
             .catch((err) => {
                 console.log(err.message, 'error occured')
@@ -144,10 +167,10 @@ const SignUp = () => {
                 </AppBar>
 
                 <Grid container sx={{ justifyContent: 'center', marginTop: '30px' }}>
-                    
+
                     <Grid sx={{ border: '3px solid black', width: { xs: '95%', sm: '55%', md: '40%', lg: '28%', xl: '21%', backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' } }}>
-                    <Grid sx={{ textAlign:'end'}}>
-                        <Icon  onClick={() => navigate('/')} icon="mdi:cancel-bold" width="25" height="25" />
+                        <Grid sx={{ textAlign: 'end' }}>
+                            <Icon onClick={() => navigate('/')} icon="mdi:cancel-bold" width="25" height="25" />
                         </Grid>
                         <Grid sx={{ textAlign: 'center' }} >
                             <img src="assets/images/SignUp_Logo.jpg" alt="logo" width={{ md: 200 }} height={20} />
@@ -233,6 +256,7 @@ const SignUp = () => {
 
 
             </Box>
+            <ToastContainer />
         </>
 
 

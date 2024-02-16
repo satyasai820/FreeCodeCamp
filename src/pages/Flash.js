@@ -20,11 +20,11 @@ const Flash = () => {
     return (
         <>
             {loading ?
-                (<ScaleLoader
+                (<ScaleLoader 
                     color={'black'}
                     loading={loading}
                     size={60}
-                    id="spinner"
+                    id="spinner" 
                 />) : (
                     < div style={{backgroundColor:'white'}}>
                         <Navbar />
