@@ -1,8 +1,6 @@
 
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
-import { Icon } from '@iconify/react';
-import { Link } from "react-router-dom";
+import controls from "./imports";
 
 const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight, display}) => {
 
@@ -70,15 +68,15 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight, d
 
     return (
         <>
-            <Box >
-                <Typography lineHeight={1} fontFamily={fontFamily} sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: marginLeft, }, marginRight: { sm: '100px', md: marginRight ||'400px', lg: '300px', xl:'350px', }, fontWeight: '600', fontSize: { xs: '25px', sm:  fontSize||'40px', md:fontSize ||'40px', lg: fontSize||'35px', xl: fontSize ||'33px', }, marginBottom: '20px', }}>
-                    Earn free verified certifications with freeCodeCamp's core curriculum:</Typography>
-            </Box>
+            <controls.Box >
+                <controls.Typography lineHeight={1} fontFamily={fontFamily} sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: marginLeft, }, marginRight: { sm: '100px', md: marginRight ||'400px', lg: '300px', xl:'350px', }, fontWeight: '600', fontSize: { xs: '25px', sm:  fontSize||'40px', md:fontSize ||'40px', lg: fontSize||'35px', xl: fontSize ||'33px', }, marginBottom: '20px', }}>
+                    Earn free verified certifications with freeCodeCamp's core curriculum:</controls.Typography>
+            </controls.Box>
 
-            <Link to="/detail/responsive" style={{ textDecoration: 'none',color:'inherit' }}>
+            <controls.Link to="/detail/responsive" style={{ textDecoration: 'none',color:'inherit' }}>
 
-                <Grid container sx={{ justifyContent: 'center', }}>
-                    <Grid  sx={{
+                <controls.Grid container sx={{ justifyContent: 'center', }}>
+                    <controls.Grid  sx={{
                         alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px',
                          width: { xs: '90%', sm: '75%', md: '60%', xl:width },
                         paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
@@ -87,26 +85,26 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight, d
                             color: '#D0D0D5',
                         },
                     }}>
-                        <Icon icon='fluent:phone-laptop-16-regular' width="50" height="50" />
+                        <controls.Icon icon='fluent:phone-laptop-16-regular' width="50" height="50" />
 
-                        <Typography sx={{
+                        <controls.Typography sx={{
                             fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
                             fontSize: { xs: '17px', sm: '19px', lg: '20px', xl: '15px', }, marginLeft: '10px',
                         }} >
                             Responsive Web Design Certification
-                        </Typography>
-                        <Box sx={{ marginLeft: 'auto', display: display || 'block' }}>
-                            <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
-                        </Box>
+                        </controls.Typography>
+                        <controls.Box sx={{ marginLeft: 'auto', display: display || 'block' }}>
+                            <controls.Icon icon="mingcute:arrows-right-line" width="35" height="35" />
+                        </controls.Box>
 
-                    </Grid>
-                </Grid>
+                    </controls.Grid>
+                </controls.Grid>
 
-            </Link>
+            </controls.Link>
 
-            <Link to="/detail/javascript"  style={{ textDecoration: 'none',color:'inherit' }}>
-            <Grid container sx={{ justifyContent: 'center' }}>
-                <Grid sx={{
+            <controls.Link to="/detail/javascript"  style={{ textDecoration: 'none',color:'inherit' }}>
+            <controls.Grid container sx={{ justifyContent: 'center' }}>
+                <controls.Grid sx={{
                     alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', xl:width },
                     paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
                     ':hover': {
@@ -114,26 +112,26 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight, d
                         color: '#D0D0D5',
                     },
                 }}>
-                    <Icon icon='ion:logo-javascript' width="50" height="50" />
+                    <controls.Icon icon='ion:logo-javascript' width="50" height="50" />
 
-                    <Typography sx={{
+                    <controls.Typography sx={{
                         fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
                         fontSize: { xs: '17px', sm: '19px', lg: '20px', xl: '15px', }, marginLeft: '10px',
                     }} >
                         JavaScript Algorithms and Data Structures (Beta) Certification
-                    </Typography>
-                    <Box sx={{ marginLeft: 'auto', display: display || 'block'  }}>
-                        <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
-                    </Box>
+                    </controls.Typography>
+                    <controls.Box sx={{ marginLeft: 'auto', display: display || 'block'  }}>
+                        <controls.Icon icon="mingcute:arrows-right-line" width="35" height="35" />
+                    </controls.Box>
 
-                </Grid>
-            </Grid>
-            </Link>
+                </controls.Grid>
+            </controls.Grid>
+            </controls.Link>
 
             {BoxData.map((item) => (
                 <>
-                    <Grid container sx={{ justifyContent: 'center', }}>
-                        <Grid sx={{
+                    <controls.Grid container sx={{ justifyContent: 'center', }}>
+                        <controls.Grid sx={{
                             alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', xl:width }, paddingLeft: '10px', backgroundColor: '#D0D0D5',
                             ':hover': {
                                 backgroundColor: '#0A0A23',
@@ -141,35 +139,35 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight, d
                             },
                             display: 'flex',
                         }}>
-                            <Icon icon={item.Icon} width="50" height="50" />
+                            <controls.Icon icon={item.Icon} width="50" height="50" />
 
-                            <Typography sx={{
+                            <controls.Typography sx={{
                                 fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
                                 fontSize: {
                                     xs: '17px', sm: '19px', lg: '20px', xl: '15px',
                                 }, marginLeft: '10px',
                             }} >
                                 {item.title}
-                            </Typography>
-                            <Box sx={{ marginLeft: 'auto', display: display || 'block' }}>
-                                <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
-                            </Box>
+                            </controls.Typography>
+                            <controls.Box sx={{ marginLeft: 'auto', display: display || 'block' }}>
+                                <controls.Icon icon="mingcute:arrows-right-line" width="35" height="35" />
+                            </controls.Box>
 
-                        </Grid>
-                    </Grid>
+                        </controls.Grid>
+                    </controls.Grid>
                 </>
             ))}
 
-            <Box >
-            <Typography lineHeight={1} fontFamily={fontFamily} sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: marginLeft, }, marginRight: { sm: '60px', md: '200px', lg: '300px', xl: '350px', }, fontWeight: '600', fontSize: { xs: '25px', sm: fontSize || '40px', md: fontSize||'40px', lg: '30px', xl: fontSize ||'33px', }, marginBottom: '20px', }}>
-            Prepare for the developer interview job search:</Typography>
-            </Box>
+            <controls.Box >
+            <controls.Typography lineHeight={1} fontFamily={fontFamily} sx={{ marginTop: { xs: '20px', sm: '30px', md: '60px', lg: '80px', xl: '80px', }, marginLeft: { xs: '15px', sm: '100px', md: '200px', lg: '300px', xl: marginLeft, }, marginRight: { sm: '60px', md: '200px', lg: '300px', xl: '350px', }, fontWeight: '600', fontSize: { xs: '25px', sm: fontSize || '40px', md: fontSize||'40px', lg: '30px', xl: fontSize ||'33px', }, marginBottom: '20px', }}>
+            Prepare for the developer interview job search:</controls.Typography>
+            </controls.Box>
 
 
             {Box2Data.map((item) => (
                 <>
-                    <Grid container sx={{ justifyContent: 'center', }}>
-                        <Grid sx={{
+                    <controls.Grid container sx={{ justifyContent: 'center', }}>
+                        <controls.Grid sx={{
                             alignItems: 'center', border: '3px solid black', height: { xs: '75px', xl: '65px', }, marginTop: '8px', width: { xs: '90%', sm: '75%', md: '60%', xl:width },
                             paddingLeft: '10px', backgroundColor: '#D0D0D5', display: 'flex',
                             ':hover': {
@@ -177,20 +175,20 @@ const BoxInformation = ({width, marginLeft, fontFamily, fontSize, marginRight, d
                                 color: '#D0D0D5',
                             },
                         }}>
-                            <Icon icon={item.Icon} width="50" height="50" />
+                            <controls.Icon icon={item.Icon} width="50" height="50" />
 
-                            <Typography sx={{
+                            <controls.Typography sx={{
                                 fontFamily: '"Lato",Helvetica,Arial,sans-serif ',
                                 fontSize: { xs: '17px', sm: '19px', lg: '20px', xl: '15px', }, marginLeft: '10px',
                             }} >
                                 {item.title}
-                            </Typography>
-                            <Box sx={{ marginLeft: 'auto', display:display || 'block' }}>
-                                <Icon icon="mingcute:arrows-right-line" width="35" height="35" />
-                            </Box>
+                            </controls.Typography>
+                            <controls.Box sx={{ marginLeft: 'auto', display:display || 'block' }}>
+                                <controls.Icon icon="mingcute:arrows-right-line" width="35" height="35" />
+                            </controls.Box>
 
-                        </Grid>
-                    </Grid>
+                        </controls.Grid>
+                    </controls.Grid>
                 </>
             ))}
 

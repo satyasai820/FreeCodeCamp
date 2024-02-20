@@ -1,5 +1,6 @@
-import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+
 import React from "react";
+import controls from "./imports";
 
 const Cards = () => {
 
@@ -31,39 +32,39 @@ const Cards = () => {
     ]
     return (
         <>
-            <Grid>
-                <Typography sx={{fontSize: { xs: '25px', sm: '40px', md: '40px', lg: '40px', xl: '35px', }, textAlign: 'center', marginTop: '50px',fontWeight: '600',}}>Here is what our alumni say about freeCodeCamp:</Typography>
-            </Grid>
+            <controls.Grid>
+                <controls.Typography sx={{fontSize: { xs: '25px', sm: '40px', md: '40px', lg: '40px', xl: '35px', }, textAlign: 'center', marginTop: '50px',fontWeight: '600',}}>Here is what our alumni say about freeCodeCamp:</controls.Typography>
+            </controls.Grid>
 
             {cardData.map((item) => (
                 <>
-                    <Grid marginTop={6}>
-                        <Card sx={{
+                    <controls.Grid marginTop={6}>
+                        <controls.Card sx={{
                             marginLeft: { lg: '150px',xl: '250px'}, margin: {xs: 'auto', sm: 'auto',md: '0'},display: {sm: 'block', md: 'flex'},width: {_xs: '80%',sm: '40%',md: '100%',lg: '80%',xl: '65%',}, boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',borderRadius: '0',}}>
-                            <CardMedia
+                            <controls.CardMedia
                                 component="img"
                                 sx={{
                                     width: {sm: '100%',md: '300px',lg: '300px',xl: '250px',},}}
                                 image={item.imgUrl}
                                 alt="Live from space album cover"
                             />
-                            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                <CardContent sx={{ flex: '1 0 auto' }}>
-                                    <Typography sx={{fontSize: {xs: '22px',sm: '20px',md: '22px',lg: '25px',xl: '20px',},textAlign: 'center',marginTop: {sm: '20px',md: '20px',lg: '30px',}}} >
+                            <controls.Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                <controls.CardContent sx={{ flex: '1 0 auto' }}>
+                                    <controls.Typography sx={{fontSize: {xs: '22px',sm: '20px',md: '22px',lg: '25px',xl: '20px',},textAlign: 'center',marginTop: {sm: '20px',md: '20px',lg: '30px',}}} >
                                         <span style={{ fontWeight: 'bold' }}>{item.name}</span>{item.subName}
-                                    </Typography>
-                                    <Typography sx={{marginTop: '5px',
+                                    </controls.Typography>
+                                    <controls.Typography sx={{marginTop: '5px',
                                         fontSize: {xs: '23px',sm: '20px',md: '22px',lg: '25px',xl: '20px',},marginBottom: '20px',textAlign: 'center',}} >
                                         {item.role}<span style={{ fontWeight: 'bold' }}>{item.company}</span>
-                                    </Typography>
-                                    <Typography sx={{
+                                    </controls.Typography>
+                                    <controls.Typography sx={{
                                         marginLeft: {xs: '15px',sm: '2px',md: '25px',},fontSize: {xs: '20px',sm: '19px',md: '20px',lg: '20px',xl: '16px',}}} >{item.content}
-                                    </Typography>
+                                    </controls.Typography>
 
-                                </CardContent>
-                            </Box>
-                        </Card>
-                    </Grid >
+                                </controls.CardContent>
+                            </controls.Box>
+                        </controls.Card>
+                    </controls.Grid >
                 </>
             ))}
             

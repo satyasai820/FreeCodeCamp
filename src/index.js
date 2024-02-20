@@ -10,7 +10,6 @@ import Store from './Redux/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// const theme = createTheme();
 const theme = createTheme({
     palette: {
         // primary: { main: '#424bf5' },

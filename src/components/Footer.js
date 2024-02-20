@@ -1,5 +1,6 @@
-import { Grid, Typography } from "@mui/material";
+
 import React from "react";
+import controls from "./imports";
 
 const Footer = () => {
 
@@ -20,79 +21,79 @@ const Footer = () => {
 
     return (
         <>
-            <Grid container marginTop={10} sx={{ justifyContent: 'center', backgroundColor: '#DFDFE2' }}>
-                <Grid container >
-                </Grid>
-                <Grid container sx={{ width: { xs: '97%', sm: '95%', lg: '90%', xl: '70%' }, fontSize: '10px' }} >
-                    <Grid item xs={12} md={6} sx={{ marginTop: { xs: '30px', md: '90px', lg: '90px' }, }}>
+            <controls.Grid container marginTop={10} sx={{ justifyContent: 'center', backgroundColor: '#DFDFE2' }}>
+                <controls.Grid container >
+                </controls.Grid>
+                <controls.Grid container sx={{ width: { xs: '97%', sm: '95%', lg: '90%', xl: '70%' }, fontSize: '10px' }} >
+                    <controls.Grid item xs={12} md={6} sx={{ marginTop: { xs: '30px', md: '90px', lg: '90px' }, }}>
 
                         {footerData.map((item) => (
                             <>
-                                <Grid container>
-                                    <Typography variant="" sx={{ lineHeight: '20px', marginTop: '20px', fontSize: { xs: '16px', lg: '16px', xl: '13.5px' }, margin: '8px' }}> {item.name} </Typography>
-                                </Grid>
+                                <controls.Grid container>
+                                    <controls.Typography variant="" sx={{ lineHeight: '20px', marginTop: '20px', fontSize: { xs: '16px', lg: '16px', xl: '13.5px' }, margin: '8px' }}> {item.name} </controls.Typography>
+                                </controls.Grid>
                             </>
                         ))
                         }
-                        <Typography fontFamily={'"Lato",sans-serif'} sx={{ fontSize: { xs: '19px', sm: '16px' }, fontWeight: '550', marginTop: '20px', color: '#2A2A40' }}>You can <span style={{ textDecoration: 'underline' }}> make a tax-deductible donation here.</span> </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={6} sx={{ marginTop: '25px' }}>
-                        <Grid container>
-                            <Grid item xs={12} textAlign='center'>
-                                <Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{ lineHeight: { xs: '45px', xl: '26px' }, fontWeight: '550', fontSize: { xs: '18px', xl: '14px' } }} >Trending Guides</Typography>
-                            </Grid>
+                        <controls.Typography fontFamily={'"Lato",sans-serif'} sx={{ fontSize: { xs: '19px', sm: '16px' }, fontWeight: '550', marginTop: '20px', color: '#2A2A40' }}>You can <span style={{ textDecoration: 'underline' }}> make a tax-deductible donation here.</span> </controls.Typography>
+                    </controls.Grid>
+                    <controls.Grid item xs={12} md={6} sx={{ marginTop: '25px' }}>
+                        <controls.Grid container>
+                            <controls.Grid item xs={12} textAlign='center'>
+                                <controls.Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{ lineHeight: { xs: '45px', xl: '26px' }, fontWeight: '550', fontSize: { xs: '18px', xl: '14px' } }} >Trending Guides</controls.Typography>
+                            </controls.Grid>
 
-                            <Grid container item xs={12} sm={4} md={6} lg={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column'>
+                            <controls.Grid container item xs={12} sm={4} md={6} lg={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column'>
                                 {sideData.map((item) => (
-                                    <Typography variant="p" > {item.name}</Typography>
+                                    <controls.Typography variant="p" > {item.name}</controls.Typography>
                                 ))}
-                            </Grid>
-                            <Grid container item xs={12} sm={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column' >
+                            </controls.Grid>
+                            <controls.Grid container item xs={12} sm={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column' >
                                 {sideData2.map((item) => (
-                                    <Typography variant="p" >{item.name}</Typography>
+                                    <controls.Typography variant="p" >{item.name}</controls.Typography>
 
                                 ))}
-                            </Grid>
-                            <Grid container item xs={12} sm={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column'>
+                            </controls.Grid>
+                            <controls.Grid container item xs={12} sm={4} lineHeight={2} sx={{ marginLeft: { xs: '10px', sm: '0' } }} direction='column'>
                                 {sideData3.map((item) => (
-                                    <Typography sx={{display:{md:'none', lg:'block'}}} variant="p" >{item.name}</Typography>
+                                    <controls.Typography sx={{display:{md:'none', lg:'block'}}} variant="p" >{item.name}</controls.Typography>
 
                                 ))}
-                            </Grid>
-                            <Grid container justifyContent='center'>
-                                <Grid textAlign='center' sx={{ marginTop: '15px' }}>
-                                    <Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{ lineHeight: { xs: '55px', xl: '36px' }, fontWeight: '550', fontSize: { xs: '18px', xl: '14px' } }} >Mobile App</Typography>
-                                    <Grid container>
-                                        <Grid item xs={12} sm={6}>
+                            </controls.Grid>
+                            <controls.Grid container justifyContent='center'>
+                                <controls.Grid textAlign='center' sx={{ marginTop: '15px' }}>
+                                    <controls.Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{ lineHeight: { xs: '55px', xl: '36px' }, fontWeight: '550', fontSize: { xs: '18px', xl: '14px' } }} >Mobile App</controls.Typography>
+                                    <controls.Grid container>
+                                        <controls.Grid item xs={12} sm={6}>
                                             <img style={{paddingRight:'5px'}} src="https://www.tapsmart.com/wp-content/uploads/2015/08/app-store-badge.png" width='131vmin' alt="App Store Logo" />
-                                            </Grid>
-                                            <Grid item xs={12} sm={6} sx={{marginTop:{xs:'15px', sm:'0px'}}}>
+                                            </controls.Grid>
+                                            <controls.Grid item xs={12} sm={6} sx={{marginTop:{xs:'15px', sm:'0px'}}}>
                                             <img  src="https://en.logodownload.org/wp-content/uploads/2019/06/get-it-on-google-play-badge.png" width='136vmin' alt="Google Play Badge" />
 
-                                            </Grid>
+                                            </controls.Grid>
                                         
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
+                                    </controls.Grid>
+                                </controls.Grid>
+                            </controls.Grid>
+                        </controls.Grid>
+                    </controls.Grid>
 
-                    <Grid container marginTop={2} justifyContent="center" marginBottom={5} sx={{ borderTop: { lg: '1px solid lightgrey' } }}>
+                    <controls.Grid container marginTop={2} justifyContent="center" marginBottom={5} sx={{ borderTop: { lg: '1px solid lightgrey' } }}>
                         {
                             aboutData.map((item) => (
                                 <>
-                                    <Grid  >
-                                        <Typography variant="p" sx={{ marginRight: '25px', display: 'flex', lineHeight: { xs: '2.5', lg: '6' } }}>{item.name}</Typography>
-                                    </Grid>
+                                    <controls.Grid  >
+                                        <controls.Typography variant="p" sx={{ marginRight: '25px', display: 'flex', lineHeight: { xs: '2.5', lg: '6' } }}>{item.name}</controls.Typography>
+                                    </controls.Grid>
                                 </>
                             ))
                         }
 
-                    </Grid>
+                    </controls.Grid>
 
-                </Grid>
+                </controls.Grid>
 
-            </Grid>
+            </controls.Grid>
         </>
     );
 }

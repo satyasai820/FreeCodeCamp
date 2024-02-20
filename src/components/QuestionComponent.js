@@ -1,5 +1,6 @@
-import { Box, Grid, Typography } from "@mui/material";
+
 import React from "react";
+import controls from "./imports";
 
 const QuestionComponent = () => {
 
@@ -43,23 +44,23 @@ const QuestionComponent = () => {
     ]
     return(
         <>
-        <Box>
-            <Typography fontFamily={''} sx={{ 
+        <controls.Box>
+            <controls.Typography fontFamily={''} sx={{ 
                 margin:{xs:'20px 0px 0px 35px',sm:'30px 100px 0px 150px',md:'60px 200px 0px 200px',lg:'80px 300px 0px 300px',xl:'40px 350px 0px 290px',},
                 fontWeight: '600',fontSize: {xs: '29px',sm: '40px',md: '40px',lg: '40px', xl: '33px',},marginBottom: '10px',}}>
-                Frequently asked questions:</Typography>
-        </Box>
+                Frequently asked questions:</controls.Typography>
+        </controls.Box>
 
         {QuestionData.map( (element) => (
             <>
-            <Grid  sx={{ width:{xs:'80%',sm:'60%', md:'60%',lg:'65%', }, marginLeft:{xs:'10vmin',sm:'150px', md:'200px',lg:'290px',}, marginRight:{ lg:'200px', xl:'0px',}, marginTop:'20px',}}>
-            <Typography sx={{fontWeight:'700',fontFamily:'sans-serif',fontSize:{xs:'20px', xl:'16px',},marginBottom:'10px', }}>{element.que}</Typography>
-            <Typography fontFamily={'"Lato",sans-serif'} sx={{fontWeight:'400',fontSize:{xs:'18px',sm:'16px', md:'18px',lg:'17px',xl:'13.5px',},}}>{element.ans}</Typography>
-        </Grid>
+            <controls.Grid  sx={{ width:{xs:'80%',sm:'60%', md:'60%',lg:'65%', }, marginLeft:{xs:'10vmin',sm:'150px', md:'200px',lg:'290px',}, marginRight:{ lg:'200px', xl:'0px',}, marginTop:'20px',}}>
+            <controls.Typography sx={{fontWeight:'700',fontFamily:'sans-serif',fontSize:{xs:'20px', xl:'16px',},marginBottom:'10px', }}>{element.que}</controls.Typography>
+            <controls.Typography fontFamily={'"Lato",sans-serif'} sx={{fontWeight:'400',fontSize:{xs:'18px',sm:'16px', md:'18px',lg:'17px',xl:'13.5px',},}}>{element.ans}</controls.Typography>
+        </controls.Grid>
             </>
         ))}
         
-        <Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{marginLeft:{ xs:'10vmin',sm:'150px', md:'200px',lg:'290px',}, marginTop:'15px',fontWeight:'bold',fontSize:'20px',}}>Happy coding !</Typography>
+        <controls.Typography fontFamily={'"Hack-ZeroSlash",monospace'} sx={{marginLeft:{ xs:'10vmin',sm:'150px', md:'200px',lg:'290px',}, marginTop:'15px',fontWeight:'bold',fontSize:'20px',}}>Happy coding !</controls.Typography>
 
         </>
     );

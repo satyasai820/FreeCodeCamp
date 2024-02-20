@@ -1,21 +1,9 @@
 
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
-import { Icon } from '@iconify/react';
-import { Button, Hidden, Menu, MenuItem } from '@mui/material';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../FireBase';
-import { signOut } from 'firebase/auth';
+import controls from './imports';
 
 
-const Search = styled('div')(({ theme }) => ({
+const Search = controls.styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: 'grey',
@@ -36,7 +24,7 @@ const Search = styled('div')(({ theme }) => ({
     },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = controls.styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
@@ -46,7 +34,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     justifyContent: 'center',
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
+const StyledInputBase = controls.styled(controls.InputBase)(({ theme }) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
@@ -71,9 +59,9 @@ const SignInbutton = {
 
 export default function Navbar() {
 
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [anchorEl, setAnchorEl] = useState(null);
-    const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = controls.useState(false);
+    const [anchorEl, setAnchorEl] = controls.useState(null);
+    const navigate = controls.useNavigate();
     let token = localStorage.getItem('accessToken');
 
     const handleButtonClick = (event) => {
@@ -89,7 +77,7 @@ export default function Navbar() {
 
 
     const tokenRemove = () => {
-        signOut(auth).then(() => {
+        controls.signOut(controls.auth).then(() => {
             localStorage.clear();
             navigate('/');
             token = '';
@@ -101,12 +89,12 @@ export default function Navbar() {
     }
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="fixed" style={{ backgroundColor: '#0A0A23' }}>
-                <Toolbar>
+        <controls.Box sx={{ flexGrow: 1 }}>
+            <controls.AppBar position="fixed" style={{ backgroundColor: '#0A0A23' }}>
+                <controls.Toolbar>
                     <Search>
                         <SearchIconWrapper>
-                            <SearchIcon />
+                            <controls.SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search 9,000+ tutorials"
@@ -115,10 +103,10 @@ export default function Navbar() {
 
                         />
                     </Search>
-                    <Box sx={{ marginLeft: { xs: '0%', lg: '15%', xl: '18%' } }}>
+                    <controls.Box sx={{ marginLeft: { xs: '0%', lg: '15%', xl: '18%' } }}>
                         <img src='https://design-style-guide.freecodecamp.org/downloads/fcc_primary_large.jpg' alt='s' width={{ xs: 100, md: 200 }} height={20} />
-                    </Box>
-                    <Box
+                    </controls.Box>
+                    <controls.Box
                         sx={{
                             position: 'absolute',
                             top: 0,
@@ -130,25 +118,24 @@ export default function Navbar() {
 
                         }}
                     >
-                        <Box sx={{
+                        <controls.Box sx={{
                             border: '1px solid white',
-                            // padding: '0 3px',
                             padding:{xs:'0px 2px',sm:'2px 5px'},
                             marginBottom:{xs:'7px ', sm:'0px'},
                             ':hover': {
                                 backgroundColor: 'white',
                                 color: 'black',
                             }
-                        }}><Icon icon="mdi:internet" width="23" height="23" /></Box>
+                        }}><controls.Icon icon="mdi:internet" width="23" height="23" /></controls.Box>
 
-                        <Hidden smUp>
+                        <controls.Hidden smUp>
 
 
-                            <IconButton>
-                                <Box sx={{ border: '1px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom:'6px', padding:'1px'  }}>
-                                    <Icon  onClick={handleButtonClick} icon="ic:baseline-menu" color="white" width="25" height="25" />
-                                    <Hidden mdUp>
-                                    <Menu
+                            <controls.IconButton>
+                                <controls.Box sx={{ border: '1px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom:'6px', padding:'1px'  }}>
+                                    <controls.Icon  onClick={handleButtonClick} icon="ic:baseline-menu" color="white" width="25" height="25" />
+                                    <controls.Hidden mdUp>
+                                    <controls.Menu
                                 anchorEl={anchorEl}
                                 open={menuOpen}
                                 onClose={handleMenuClose}
@@ -156,35 +143,35 @@ export default function Navbar() {
                                     style: {backgroundColor: 'black', color: 'white', width: '150px', marginLeft:'20px',  marginTop:'13px', },
                                 }}
                             >
-                                <MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', paddingLeft:'20px' }} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </MenuItem>
-                                <MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', paddingLeft:'20px' }} onClick={handleMenuClose} style={{ color: 'white' }}> Curriculum </MenuItem>
-                                <MenuItem sx={{  fontFamily: 'Lato, sans-serif',fontSize: '14px', paddingLeft:'20px'}} onClick={handleMenuClose} style={{ color: 'white' }}>  Forum </MenuItem>
-                                <MenuItem sx={{fontFamily: 'Lato, sans-serif', fontSize: '14px', }} style={{ color: 'white' }}>
-                                    {token ? (<Button onClick={tokenRemove} style={{ color: 'white', textTransform: 'none' }}>
+                                <controls.MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', paddingLeft:'20px' }} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </controls.MenuItem>
+                                <controls.MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', paddingLeft:'20px' }} onClick={handleMenuClose} style={{ color: 'white' }}> Curriculum </controls.MenuItem>
+                                <controls.MenuItem sx={{  fontFamily: 'Lato, sans-serif',fontSize: '14px', paddingLeft:'20px'}} onClick={handleMenuClose} style={{ color: 'white' }}>  Forum </controls.MenuItem>
+                                <controls.MenuItem sx={{fontFamily: 'Lato, sans-serif', fontSize: '14px', }} style={{ color: 'white' }}>
+                                    {token ? (<controls.Button onClick={tokenRemove} style={{ color: 'white', textTransform: 'none' }}>
                                         Sign out
-                                    </Button>) : (<Button disabled style={{ color: 'gray' }}>
+                                    </controls.Button>) : (<controls.Button disabled style={{ color: 'gray' }}>
                                         Sign Out
-                                    </Button>)}
-                                </MenuItem>
-                            </Menu>
-                                    </Hidden>
-                                </Box>
-                            </IconButton>
+                                    </controls.Button>)}
+                                </controls.MenuItem>
+                            </controls.Menu>
+                                    </controls.Hidden>
+                                </controls.Box>
+                            </controls.IconButton>
 
 
-                        </Hidden>
-                        <Hidden smDown>
-                            <IconButton>
-                                <Button
+                        </controls.Hidden>
+                        <controls.Hidden smDown>
+                            <controls.IconButton>
+                                <controls.Button
                                     onClick={handleButtonClick}
                                     sx={{
                                         border: '1px solid white', color: 'white', borderRadius: '0px', textTransform: 'capitalize', fontSize: '14px', fontFamily: 'Lato, sans-serif', padding: '3px',
                                         ':hover': { backgroundColor: 'white', color: 'black', },
                                     }}>
                                     Menu
-                                </Button>
-                            </IconButton>
-                            <Menu
+                                </controls.Button>
+                            </controls.IconButton>
+                            <controls.Menu
                                 anchorEl={anchorEl}
                                 open={menuOpen}
                                 onClose={handleMenuClose}
@@ -196,78 +183,78 @@ export default function Navbar() {
                                     },
                                 }}
                             >
-                                <MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', }} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </MenuItem>
-                                <MenuItem sx={{
+                                <controls.MenuItem sx={{ fontFamily: 'Lato, sans-serif', fontSize: '14px', }} onClick={handleMenuClose} style={{ color: 'white' }}> Donate </controls.MenuItem>
+                                <controls.MenuItem sx={{
                                     borderBottom: '1px solid white',
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
                                     Curriculum
-                                </MenuItem>
-                                <MenuItem sx={{
+                                </controls.MenuItem>
+                                <controls.MenuItem sx={{
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
                                     Forum
-                                </MenuItem>
-                                <MenuItem sx={{
+                                </controls.MenuItem>
+                                <controls.MenuItem sx={{
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
                                     News
-                                </MenuItem>
-                                <MenuItem sx={{
+                                </controls.MenuItem>
+                                <controls.MenuItem sx={{
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
                                     Ratio
-                                </MenuItem>
-                                <MenuItem sx={{
+                                </controls.MenuItem>
+                                <controls.MenuItem sx={{
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
                                     Contribute
-                                </MenuItem>
-                                <MenuItem sx={{
+                                </controls.MenuItem>
+                                <controls.MenuItem sx={{
                                     borderBottom: '1px solid white',
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} onClick={handleMenuClose} style={{ color: 'white' }}>
                                     Podcast
-                                </MenuItem>
-                                <MenuItem sx={{
+                                </controls.MenuItem>
+                                <controls.MenuItem sx={{
                                     fontFamily: 'Lato, sans-serif',
                                     fontSize: '14px',
                                 }} style={{ color: 'white' }}>
-                                    {token ? (<Button onClick={tokenRemove} style={{ color: 'white', textTransform: 'none' }}>
+                                    {token ? (<controls.Button onClick={tokenRemove} style={{ color: 'white', textTransform: 'none' }}>
                                         Sign out
-                                    </Button>) : (<Button disabled style={{ color: 'gray' }}>
+                                    </controls.Button>) : (<controls.Button disabled style={{ color: 'gray' }}>
                                         Sign Out
-                                    </Button>)}
-                                </MenuItem>
-                            </Menu>
+                                    </controls.Button>)}
+                                </controls.MenuItem>
+                            </controls.Menu>
 
-                        </Hidden>
-                        <Hidden smUp>
-                            <IconButton >
-                                <Box sx={{ border: '2px solid #f79205', display: 'flex', alignItems: 'center',  backgroundColor: '#FEAC32', color: 'black',  marginBottom:'6px' }}>
-                                    {token ? (<Icon icon="mdi:user-circle" color='white' width="25" height="25" />) : <Icon onClick={() => (navigate('/SignUp'))} icon="material-symbols:login" width="25" height="25" />}
+                        </controls.Hidden>
+                        <controls.Hidden smUp>
+                            <controls.IconButton >
+                                <controls.Box sx={{ border: '2px solid #f79205', display: 'flex', alignItems: 'center',  backgroundColor: '#FEAC32', color: 'black',  marginBottom:'6px' }}>
+                                    {token ? (<controls.Icon icon="mdi:user-circle" color='white' width="25" height="25" />) : <controls.Icon onClick={() => (navigate('/SignUp'))} icon="material-symbols:login" width="25" height="25" />}
 
-                                </Box>
-                            </IconButton>
+                                </controls.Box>
+                            </controls.IconButton>
 
-                        </Hidden>
-                        <Hidden smDown>
-                            <IconButton >
-                                {token ? (<Icon icon="mdi:user-circle" color='white' width="35" height="35" />) : (<Button onClick={() => (navigate('/SignUp'))} style={SignInbutton}>Sign in</Button>)}
+                        </controls.Hidden>
+                        <controls.Hidden smDown>
+                            <controls.IconButton >
+                                {token ? (<controls.Icon icon="mdi:user-circle" color='white' width="35" height="35" />) : (<controls.Button onClick={() => (navigate('/SignUp'))} style={SignInbutton}>Sign in</controls.Button>)}
 
-                            </IconButton>
-                        </Hidden>
-                    </Box>
-                    <Box sx={{ flexGrow: 1 }} />
-                </Toolbar>
-            </AppBar>
-        </Box>
+                            </controls.IconButton>
+                        </controls.Hidden>
+                    </controls.Box>
+                    <controls.Box sx={{ flexGrow: 1 }} />
+                </controls.Toolbar>
+            </controls.AppBar>
+        </controls.Box>
     );
 }
 

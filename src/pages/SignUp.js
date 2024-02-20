@@ -1,7 +1,7 @@
 
 import { Icon } from "@iconify/react";
 import { AppBar, Box, Button, Grid, TextField, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { auth, provider, gitProvider } from '../FireBase';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,6 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
 
     const showToast = (message, type = 'success') => {
         localStorage.setItem('toastMessage', message);
@@ -48,13 +47,6 @@ const SignUp = () => {
         setPasswordError(getPassword.length >= 6 ? '' : 'invalid password');
     }
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
 
 
     //email and password authentication
@@ -125,6 +117,7 @@ const SignUp = () => {
             .then((result) => {
                 console.log("result", result);
                 navigate('/home');
+                showToast('Successfully login with Google')
                 const token = result.user.accessToken;
                 localStorage.setItem('accessToken', token);
                 console.log('this is token google token man ', token);
