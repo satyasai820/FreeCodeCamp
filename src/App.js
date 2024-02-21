@@ -1,11 +1,7 @@
 import React, { lazy, useEffect , useRef, Suspense } from 'react';
 import './App.css';
 import { Route, Routes, useLocation} from "react-router-dom";
-// import Flash from './pages/Flash';
-// import SignUp from "./pages/SignUp";
-// import Home from './pages/Home';
-// import Detail from './pages/Detail';
-
+import Spinner from './components/Spinner';
 
 const Home = lazy( () => import('./pages/Home'))
   const SignUp = lazy( () => import("./pages/SignUp"))
@@ -34,7 +30,7 @@ function App() {
   return (
     
     <>
-    <Suspense fallback={<p style={{textAlign:'center'}}>Loading....</p>}>
+    <Suspense fallback={<p style={{textAlign:'center'}}><Spinner /></p>}>
       <Routes>
         <Route path="/" element={<Flash />} />
         <Route path="/signup" element={<SignUp />} />

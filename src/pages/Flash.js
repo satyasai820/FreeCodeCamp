@@ -7,6 +7,7 @@ import QuestionComponent from "../components/QuestionComponent";
 import Footer from "../components/Footer";
 import { ScaleLoader } from "react-spinners";
 import Navbar from "../components/Navbar";
+import Spinner from "../components/Spinner";
 
 const Flash = () => {
     const [loading, setloading] = useState(false);
@@ -20,12 +21,7 @@ const Flash = () => {
     return (
         <>
             {loading ?
-                (<ScaleLoader 
-                    color={'black'}
-                    loading={loading}
-                    size={60}
-                    id="spinner" 
-                />) : (
+                (<Spinner/>) : (
                     < div style={{backgroundColor:'white'}}>
                         <Navbar />
                         <Content />

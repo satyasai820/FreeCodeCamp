@@ -15,7 +15,6 @@ const AccordionComponent = ({ data2, SetData2 }) => {
 
             SetData2(getData);
 
-            console.log("accordion data is here", getData);
         }
         catch (error) {
             console.log("Here Im getting error in Accordion Component...");
@@ -27,11 +26,9 @@ const AccordionComponent = ({ data2, SetData2 }) => {
 
     const param = controls.useParams();
     const routename = param.id;
-    console.log('i am data2 in accordian', data2)
     const extractData = data2;
 
     const matter = extractData.filter((item) => item.status === routename);
-    console.log('Im accordion component data', matter);
 
     return (
         <>
